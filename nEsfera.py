@@ -13,8 +13,8 @@ class Esfera(Scene):
         titulo = MathTex("Esfera S^{n-1} en D^n").scale(0.9).to_edge(DR)
 
         # Dibujar un disco de dimensión 0 con título y definición
-        esfera_0 = Circle(radius=0.1, color=RED, fill_opacity=1).move_to(axes.coords_to_point(1, 0))
-        esfera_01 = Circle(radius=0.1, color=RED, fill_opacity=1).move_to(axes.coords_to_point(-1, 0))
+        esfera_0 = Circle(radius=0.1, color=RED, fill_opacity=1).move_to(axes.coords_to_point(.4, 0))
+        esfera_01 = Circle(radius=0.1, color=RED, fill_opacity=1).move_to(axes.coords_to_point(-0.4, 0))
         number_line = NumberLine(
             x_range=[-1, 1],
             color=WHITE,
@@ -32,13 +32,12 @@ class Esfera(Scene):
 
 
         # Dibujar una esfera de dimensión 1 con título y definición
-        esfera_1 = Circle(radius=1, color=GREEN).move_to(axes.coords_to_point(0, 0))
-        disco_2 = Circle(radius=1, color=BLUE, fill_opacity=1).move_to(axes.coords_to_point(0, 0))
+        esfera_1 = Circle(radius=1, color=RED).move_to(axes.coords_to_point(0, 0))
         texto_esfera_1 = VGroup(
             Text("Dimensión 1"),
             MathTex(r"S^1 = \partial D^2")
         ).arrange(DOWN).to_corner(UL)
-        esfera_1_def = VGroup(esfera_1,disco_2, texto_esfera_1)
+        esfera_1_def = VGroup(esfera_1, texto_esfera_1)
 
 
 
