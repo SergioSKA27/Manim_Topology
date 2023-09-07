@@ -33,18 +33,21 @@ video_index = st.slider("Cambia el video:", 0, len(videos) - 1, video_index)
 selected_video = videos[video_index]
 
 # Diccionario de videos y sus enlaces
-video_links = {
-   'Homeomorfismo':"Videos/CirculoACuadrado.mp4",
-"Discos_D0_D2":"Videos/Disco.mp4",
-"DiscoD3":"Videos/ThreeDLightSourcePosition.mp4",
-"Esferas_S0_S1":"/Videos/Esfera.mp4",
-"EsferaS2":"Videos/Esfera2D.mp4",
-"EsferaS2Ejemplo2":"Videos/Esfera2Example2.mp4",
-"Video":"Videos/Homotopia.mp4",
+video_links = [
+"Videos/CirculoACuadrado.mp4",
+"Videos/Disco.mp4",
+"Videos/ThreeDLightSourcePosition.mp4",
+"/Videos/Esfera.mp4",
+"Videos/Esfera2D.mp4",
+"Videos/Esfera2Example2.mp4",
+"Videos/Homotopia.mp4",
+"Videos/Torus_knot.mp4",
+"Videos/TorusKnot2Dto3D.mp4" ,
+"Videos/TorotoKnot.mp4"]
 
-"Torus_knot":"Videos/Torus_knot.mp4",
-"TorusKnot2Dto3D":"Videos/TorusKnot2Dto3D.mp4" , "TorusToKnot": "Videos/TorotoKnot"}
 
+
+dicc = dict(zip(videos, video_links))
 # Mostrar el video seleccionado
 video_widget.video(video_links[selected_video])
 
