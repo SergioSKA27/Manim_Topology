@@ -39,7 +39,7 @@ selected_video = videos[video_index]
 
 
 # Mostrar el video seleccionado
-video_widget.video(videos[selected_video])
+video_widget.video(selected_video)
 
 
 
