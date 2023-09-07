@@ -8,15 +8,18 @@ st_lottie("https://lottie.host/4f56c993-fd92-42e4-9945-c5df0387f986/mTRLkrdQVJ.j
 st.header("Selecciona un video de Manim:")
 
 # Lista de videos disponibles
-videos = ["Homeomorfismo",
-"Discos_D0_D2",
-"DiscoD3",
-"Esferas_S0_S1",
-"EsferaS2",
-"EsferaS2Ejemplo2",
-"Homotopia",
-"Torus_knot",
-"TorusKnot2Dto3D",'TorusToKnot' ]
+videos = [
+"Videos/CirculoACuadrado.mp4",
+"Videos/Disco.mp4",
+"Videos/ThreeDLightSourcePosition.mp4",
+"/Videos/Esfera.mp4",
+"Videos/Esfera2D.mp4",
+"Videos/Esfera2Example2.mp4",
+"Videos/Homotopia.mp4",
+"Videos/Torus_knot.mp4",
+"Videos/TorusKnot2Dto3D.mp4" ,
+"Videos/TorotoKnot.mp4"]
+
 
 
 # Widget de selección de video
@@ -33,23 +36,10 @@ video_index = st.slider("Cambia el video:", 0, len(videos) - 1, video_index)
 selected_video = videos[video_index]
 
 # Diccionario de videos y sus enlaces
-video_links = [
-"Videos/CirculoACuadrado.mp4",
-"Videos/Disco.mp4",
-"Videos/ThreeDLightSourcePosition.mp4",
-"/Videos/Esfera.mp4",
-"Videos/Esfera2D.mp4",
-"Videos/Esfera2Example2.mp4",
-"Videos/Homotopia.mp4",
-"Videos/Torus_knot.mp4",
-"Videos/TorusKnot2Dto3D.mp4" ,
-"Videos/TorotoKnot.mp4"]
 
 
-
-dicc = dict(zip(videos, video_links))
 # Mostrar el video seleccionado
-video_widget.video(video_links[selected_video])
+video_widget.video(videos[selected_video])
 
 
 
