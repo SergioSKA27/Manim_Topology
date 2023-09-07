@@ -16,7 +16,7 @@ videos = ["Homeomorfismo",
 "EsferaS2Ejemplo2",
 "Homotopia",
 "Torus_knot",
-"TorusKnot2Dto3D"]
+"TorusKnot2Dto3D",'TorusToKnot' ]
 
 
 # Widget de selección de video
@@ -43,7 +43,7 @@ video_links = {
 "Video":"Videos/Homotopia.mp4",
 
 "Torus_knot":"Videos/Torus_knot.mp4",
-"TorusKnot2Dto3D":"Videos/TorusKnot2Dto3D.mp4"}
+"TorusKnot2Dto3D":"Videos/TorusKnot2Dto3D.mp4" , "TorusToKnot": "Videos/TorotoKnot"}
 
 # Mostrar el video seleccionado
 video_widget.video(video_links[selected_video])
