@@ -107,12 +107,4 @@ header h1 {
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-st_lottie("https://lottie.host/4f56c993-fd92-42e4-9945-c5df0387f986/mTRLkrdQVJ.json")
-# Subtítulo
-
-
-cols = st.columns(5)
-
-with cols[2]:
-   if st.button('INICIAR'):
-      switch_page_button('pages.topospaces')
+st_lottie("https://lottie.host/4f56c993-fd92-42e4-9945-c5df0387f986/mTRLkrdQVJ.json",quality="high")
