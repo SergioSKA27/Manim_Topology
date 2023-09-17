@@ -64,7 +64,7 @@ header h1 {
 @media screen and (max-device-width: 480px)
     and (orientation: portrait) {
     header h1 {
-  font-size: 50px;
+  font-size: 40px;
   min-width: 50%;
   max-width: 100%;
   font-weight: 500;
@@ -81,7 +81,7 @@ header h1 {
 @media screen and (max-device-width: 640px)
     and (orientation: landscape) {
     header h1 {
-   font-size: 50px;
+   font-size: 40px;
   min-width: 50%;
   max-width: 100%;
   font-weight: 500;
