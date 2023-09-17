@@ -36,6 +36,8 @@ header {
 
 header h1 {
   font-size: 100px;
+  min-width: 50%;
+  max-width: 100%;
   font-weight: 500;
   color: #553c9a;
   border-right: 4px solid #000;
@@ -57,6 +59,42 @@ header h1 {
   90%{ width: 0ch;} /*Text is deleted*/
   100%{ width: 0ch;} /*Text stays hidden*/
 }
+
+/* For Mobile Portrait View */
+@media screen and (max-device-width: 480px)
+    and (orientation: portrait) {
+    header h1 {
+  font-size: 50px;
+  min-width: 50%;
+  max-width: 100%;
+  font-weight: 500;
+  color: #553c9a;
+  border-right: 4px solid #000;
+  animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: monospace;
+  overflow: hidden;
+   }
+}
+/* For Mobile Landscape View */
+@media screen and (max-device-width: 640px)
+    and (orientation: landscape) {
+    header h1 {
+   font-size: 50px;
+  min-width: 50%;
+  max-width: 100%;
+  font-weight: 500;
+  color: #553c9a;
+  border-right: 4px solid #000;
+  animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: monospace;
+  overflow: hidden;
+   }
+}
+
 </style>
 
 
@@ -77,4 +115,4 @@ cols = st.columns(5)
 
 with cols[2]:
    if st.button('INICIAR'):
-      switch_page_button('topospaces')
+      switch_page_button('pages.topospaces')
