@@ -6,7 +6,18 @@ import copy
 import pandas as pd
 from threading  import Thread
 
+st.set_page_config(
+    page_title='Nudos y Enlaces',
+    page_icon=':robot_face:',
+    layout="wide",
+    initial_sidebar_state="collapsed",
+    menu_items={
 
+        'About': """Autor: Lopez Martinez Sergio Demis
+
+©Todos los derechos reservados 2023."""
+    }
+)
 st.set_page_config(layout="wide")
 
 

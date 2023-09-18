@@ -1,8 +1,20 @@
 import streamlit as st
 from streamlit_lottie import st_lottie
-from streamlit_extras import switch_page_button
+from streamlit_extras.switch_page_button import switch_page
+import time
 # Título de la aplicación
+st.set_page_config(
+    page_title='Nudos y Enlaces',
+    page_icon=':robot_face:',
+    layout="centered",
+    initial_sidebar_state="collapsed",
+    menu_items={
 
+        'About': """Autor: Lopez Martinez Sergio Demis
+
+©Todos los derechos reservados 2023."""
+    }
+)
 
 page_bg_img = '''
 <style>
@@ -26,6 +38,7 @@ page_bg_img = '''
             z-index: 2;
         }
 header {
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -44,8 +57,11 @@ header h1 {
   animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
   white-space: nowrap;
   overflow: hidden;
-  font-family: monospace;
+  font-family: Courier New;
   overflow: hidden;
+  text-shadow:
+    1px 1px 1px blue,
+    2px 2px 1px blue;
 }
 @keyframes cursor{
   0%, 100%{border-color: transparent;}
@@ -73,8 +89,11 @@ header h1 {
   animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
   white-space: nowrap;
   overflow: hidden;
-  font-family: monospace;
+  font-family: Courier New;
   overflow: hidden;
+  text-shadow:
+    1px 1px 1px blue,
+    2px 2px 1px blue;
    }
 }
 /* For Mobile Landscape View */
@@ -90,8 +109,11 @@ header h1 {
   animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
   white-space: nowrap;
   overflow: hidden;
-  font-family: monospace;
+  font-family: Courier New.;
   overflow: hidden;
+  text-shadow:
+    1px 1px 1px blue,
+    2px 2px 1px blue;
    }
 }
 
@@ -107,4 +129,9 @@ header h1 {
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-st_lottie("https://lottie.host/4f56c993-fd92-42e4-9945-c5df0387f986/mTRLkrdQVJ.json",quality="high")
+st_lottie("https://lottie.host/4f56c993-fd92-42e4-9945-c5df0387f986/mTRLkrdQVJ.json",quality="high",key='knot')
+
+
+
+
+
