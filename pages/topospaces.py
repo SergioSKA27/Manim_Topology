@@ -502,3 +502,69 @@ with cols2[1]:
 
     with tabs1[1]:
         st.video('Videos/PAGINA1/Openset2.mp4')
+
+
+
+
+cols3 = st.columns([.5,.5])
+
+with cols3[0]:
+    st.header('Conjuntos Bases y Subbases')
+    st.divider()
+    '''
+Una colección $\mathcal{B}$ de conjuntos en un espacio topológico $(X, \tau)$ se llama una base para la topología $\tau$ si, para cada conjunto abierto $U \in \tau$ y para cada punto $x \in U$, existe al menos un conjunto $B \in \mathcal{B}$ tal que $x \in B \subseteq U$.
+Una colección $\mathcal{S}$ de conjuntos en un espacio topológico $(X, \tau)$ se llama una subbase para la topología $\tau$ si la colección de todas las intersecciones finitas de conjuntos en $\mathcal{S}$ genera la topología $\tau$.
+ '''
+
+with cols3[1]:
+    st.header('Topología Generada por una Métrica:')
+    st.divider()
+    '''
+Dado un espacio métrico $(X, d)$, la topología generada por la métrica $d$ en $X$ consiste en todos los conjuntos abiertos $U$ de acuerdo con la siguiente definición:
+$$
+U \in \tau_d \iff \forall x \in U, \exists \epsilon > 0 \text{ tal que } B_\epsilon(x) \subseteq U,
+$$
+donde $B_\epsilon(x)$ representa la bola abierta centrada en $x$ con radio $\epsilon$.
+
+    '''
+
+
+
+st.header('Punto Frontera')
+st.divider()
+cols4 = st.columns([.5,.5])
+
+with cols4[0]:
+    '''
+Dado un conjunto $A$ en un espacio topológico $(X, \tau)$, un punto $x$ se llama punto frontera de $A$ si para cualquier entorno abierto $U$ de $x$, la intersección de $U$ con $A$ y la intersección de $U$ con el complemento de $A$ no son vacías, es decir,
+$$
+x \text{ es un punto frontera de } A \iff \forall U \in \tau, \left( U \cap A \neq \emptyset \text{ y } U \cap (X \setminus A) \neq \emptyset \right).
+$$
+    '''
+
+with cols4[1]:
+    st.video('Videos/PAGINA1/PuntoF.mp4')
+
+
+
+cols5 = st.columns([.5,.5])
+
+with cols5[0]:
+    st.header('Frontera de un Conjunto')
+    '''
+La frontera de un conjunto $A$ en un espacio topológico $(X, \tau)$, denotada como $\partial A$, es el conjunto de todos los puntos frontera de $A$, es decir,
+$$
+\partial A = \{ x \in X \mid x \text{ es un punto frontera de } A \}.
+$$
+    '''
+
+
+
+with cols5[1]:
+    st.header('Punto de Acumulación')
+    '''
+Dado un conjunto $A$ en un espacio topológico $(X, \tau)$, un punto $x$ se llama punto de acumulación de $A$ si para cualquier entorno abierto $U$ de $x$, la intersección de $U$ con $A$ contiene al menos un punto distinto de $x$, es decir,
+$$
+x \text{ es un punto de acumulación de } A \iff \forall U \in \tau, \left( U \cap A \setminus \{x\} \neq \emptyset \right).
+$$
+    '''
