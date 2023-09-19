@@ -193,7 +193,7 @@ class Set:
                 Ps.append(Set(len(e),e))
         return Ps
 
-@st.cache_data
+
 def FamilySetUnion(F) -> Set:
     U = copy.copy(F[0])
     for i in range(1,len(F)):
@@ -201,7 +201,7 @@ def FamilySetUnion(F) -> Set:
     return U
 
 
-@st.cache_data
+
 def is_topologie(T, s):
     """
     The function checks if the given set of sets is a topology on the given set.
@@ -272,7 +272,7 @@ def is_topologie(T, s):
 
     return True
 
-@st.cache_data
+
 def topologies_of_Set(S):
     """
     The function "topologies_of_Set" generates all possible topologies of a given set.
