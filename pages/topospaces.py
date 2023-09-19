@@ -18,7 +18,7 @@ st.set_page_config(
 ©Todos los derechos reservados 2023."""
     }
 )
-st.set_page_config(layout="wide")
+
 
 
 #Created by: Lopez Martinez Sergio Demis
