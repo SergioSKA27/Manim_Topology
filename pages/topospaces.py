@@ -27,8 +27,7 @@ if 'topologies' not in st.session_state:
 if 'notopologies' not in st.session_state:
     st.session_state['notopologies'] = None
 
-if 'sett' not in st.session_state:
-    st.session_state['sett'] = None
+
 
 #Created by: Lopez Martinez Sergio Demis
 #this help us to identify all the topologies in a given set
@@ -464,7 +463,8 @@ comentario="""
 """
 
 
-
+if 'sett' not in st.session_state:
+    st.session_state['sett'] = Set(3,[1,2,3])
 st.header('UN POCO DE TOPOLOGIA')
 st.header('Espacio Topológico')
 st.divider()
@@ -487,9 +487,10 @@ with cols1[1]:
     s = st.text_input('Ingrese un conjunto','{1,2,3}')
     st.info('Ejemplo: {1,2,3,4} o 1,2,3,4')
     stet = readinput(s)
-    st.session_state['sett'] = stet
+
     if st.button('Calcular') or (st.session_state['topologies'] != None and st.session_state['sett'] == stet) :
         if (st.session_state['topologies']== None and st.session_state['topologies'] == None) and st.session_state['sett'] != stet :
+            st.session_state['sett'] = stet
             with st.spinner('Espera un momento, estamos calculando las topologías ⌛...'):
                 topologies, notopologies = topologies_of_Set(stet)
                 st.session_state['topologies'] = topologies
