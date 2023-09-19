@@ -499,11 +499,13 @@ with cols1[1]:
         if op == 'Topologías':
             st.data_editor(pd.DataFrame(st.session_state['topologies']).fillna(""))
             indx = st.selectbox('Seleccione un Indice', list(range(len(st.session_state['topologies']))))
-            whyis_topologie(st.session_state['topologies'][indx],stet)
+            with st.expander('¿Por que es una topología?'):
+                whyis_topologie(st.session_state['topologies'][indx],stet)
         else:
             st.data_editor(pd.DataFrame(st.session_state['notopologies']).fillna(""))
             indx = st.selectbox('Seleccione un Indice', list(range(len(st.session_state['notopologies']))))
-            whyis_topologie(st.session_state['notopologies'][indx],stet)
+            with st.expander('¿Por que no es una topología?'):
+                whyis_topologie(st.session_state['notopologies'][indx],stet)
 
 st.header('Conjuntos Abiertos y Cerrados en un Espacio Topológico')
 st.divider()
