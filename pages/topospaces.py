@@ -488,8 +488,8 @@ with cols1[1]:
     st.info('Ejemplo: {1,2,3,4} o 1,2,3,4')
     stet = readinput(s)
     st.session_state['sett'] = stet
-    if st.button('Calcular') or st.session_state['topologies'] != None:
-        if (st.session_state['topologies']== None and st.session_state['topologies'] == None) or st.session_state['sett'] != stet :
+    if st.button('Calcular') or (st.session_state['topologies'] != None and st.session_state['sett'] == stet) :
+        if (st.session_state['topologies']== None and st.session_state['topologies'] == None) and st.session_state['sett'] != stet :
             with st.spinner('Espera un momento, estamos calculando las topologías ⌛...'):
                 topologies, notopologies = topologies_of_Set(stet)
                 st.session_state['topologies'] = topologies
