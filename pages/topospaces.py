@@ -539,7 +539,11 @@ with cols4[0]:
 Dado un conjunto $A$ en un espacio topológico $(X, \tau)$, un punto $x$ se llama punto frontera de $A$ si para cualquier entorno abierto $U$ de $x$, la intersección de $U$ con $A$ y la intersección de $U$ con el complemento de $A$ no son vacías, es decir,
 
 $$
-x \text{ es un punto frontera de } A \iff \forall U \in \tau, \left( U \cap A \neq \emptyset \text{ y } U \cap (X \setminus A) \neq \emptyset \right).
+x \text{ es un punto frontera de } A \iff
+$$
+
+$$
+\forall U \in \tau, \left( U \cap A \neq \emptyset \text{ y } U \cap (X \setminus A) \neq \emptyset \right).
 $$
     '''
 
@@ -552,6 +556,7 @@ cols5 = st.columns([.5,.5])
 
 with cols5[0]:
     st.header('Frontera de un Conjunto')
+    st.divider()
     r'''
 La frontera de un conjunto $A$ en un espacio topológico $(X, \tau)$, denotada como $\partial A$, es el conjunto de todos los puntos frontera de $A$, es decir,
 
@@ -564,6 +569,7 @@ $$
 
 with cols5[1]:
     st.header('Punto de Acumulación')
+    st.divider()
     r'''
 Dado un conjunto $A$ en un espacio topológico $(X, \tau)$, un punto $x$ se llama punto de acumulación de $A$ si para cualquier entorno abierto $U$ de $x$, la intersección de $U$ con $A$ contiene al menos un punto distinto de $x$, es decir,
 
