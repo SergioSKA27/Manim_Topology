@@ -462,9 +462,9 @@ comentario="""
     4)Retornamos una lista con las topologias validas y otra con aquellas que no lo son.
 """
 
-
 if 'sett' not in st.session_state:
     st.session_state['sett'] = Set(3,[1,2,3])
+
 st.header('UN POCO DE TOPOLOGIA')
 st.header('Espacio Topológico')
 st.divider()
@@ -488,8 +488,8 @@ with cols1[1]:
     st.info('Ejemplo: {1,2,3,4} o 1,2,3,4')
     stet = readinput(s)
 
-    if st.button('Calcular') or (st.session_state['topologies'] != None and st.session_state['sett'] == stet) :
-        if (st.session_state['topologies']== None and st.session_state['topologies'] == None) and st.session_state['sett'] != stet :
+    if st.button('Calcular') or st.session_state['topologies'] != None :
+        if (st.session_state['topologies']== None and st.session_state['topologies'] == None) and st.session_state['sett'] != stet:
             st.session_state['sett'] = stet
             with st.spinner('Espera un momento, estamos calculando las topologías ⌛...'):
                 topologies, notopologies = topologies_of_Set(stet)
