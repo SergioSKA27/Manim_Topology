@@ -19,7 +19,16 @@ st.set_page_config(
     }
 )
 
+# Session
 
+if 'topologies' not in st.session_state:
+    st.session_state['topologies'] = None
+
+if 'notopologies' not in st.session_state:
+    st.session_state['notopologies'] = None
+
+if 'sett' not in st.session_state:
+    st.session_state['sett'] = None
 
 #Created by: Lopez Martinez Sergio Demis
 #this help us to identify all the topologies in a given set
@@ -337,7 +346,7 @@ def readinput(s):
             cset.addelement(ss)
         return cset
 
-
+st.cache_data
 def whyis_topologie(T, s):
     """
     The function checks if the given set of sets is a topology on the given set.
@@ -478,19 +487,23 @@ with cols1[1]:
     s = st.text_input('Ingrese un conjunto','{1,2,3}')
     st.info('Ejemplo: {1,2,3,4} o 1,2,3,4')
     stet = readinput(s)
+    st.session_state['sett'] = stet
     if st.button('Calcular'):
-        with st.spinner('Espera un momento, estamos calculando las topologías ⌛...'):
-            topologies, notopologies = topologies_of_Set(stet)
+        if (st.session_state['topologies']== None and st.session_state['topologies'] == None) or st.session_state['sett'] != stet :
+            with st.spinner('Espera un momento, estamos calculando las topologías ⌛...'):
+                topologies, notopologies = topologies_of_Set(stet)
+                st.session_state['topologies'] = topologies
+                st.session_state['notopologies'] = notopologies
 
         op = st.selectbox('Seleccione una Opción', ['Topologías','No Topologías'])
         if op == 'Topologías':
-            st.data_editor(pd.DataFrame(topologies).fillna(""))
-            indx = st.selectbox('Seleccione un Indice', list(range(len(topologies))))
-            whyis_topologie(topologies[indx],stet)
+            st.data_editor(pd.DataFrame(st.session_state['topologies']).fillna(""))
+            indx = st.selectbox('Seleccione un Indice', list(range(len(st.session_state['topologies']))))
+            whyis_topologie(st.session_state['topologies'][indx],stet)
         else:
-            st.data_editor(pd.DataFrame(notopologies).fillna(""))
-            indx = st.selectbox('Seleccione un Indice', list(range(len(notopologies))))
-            whyis_topologie(notopologies[indx],stet)
+            st.data_editor(pd.DataFrame(st.session_state['notopologies']).fillna(""))
+            indx = st.selectbox('Seleccione un Indice', list(range(len(st.session_state['notopologies']))))
+            whyis_topologie(st.session_state['notopologies'][indx],stet)
 
 st.header('Conjuntos Abiertos y Cerrados en un Espacio Topológico')
 st.divider()
