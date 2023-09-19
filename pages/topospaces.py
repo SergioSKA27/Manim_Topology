@@ -193,7 +193,7 @@ class Set:
                 Ps.append(Set(len(e),e))
         return Ps
 
-
+@st.cache_data
 def FamilySetUnion(F) -> Set:
     U = copy.copy(F[0])
     for i in range(1,len(F)):
@@ -201,7 +201,7 @@ def FamilySetUnion(F) -> Set:
     return U
 
 
-
+@st.cache_data
 def is_topologie(T, s):
     """
     The function checks if the given set of sets is a topology on the given set.
@@ -272,7 +272,7 @@ def is_topologie(T, s):
 
     return True
 
-
+@st.cache_data
 def topologies_of_Set(S):
     """
     The function "topologies_of_Set" generates all possible topologies of a given set.
@@ -360,17 +360,17 @@ def whyis_topologie(T, s):
             break
 
     if flag1 < 2 :
-        print("1) ",str(Set(0,[])),",", s,"¬(E) τ.")
+        st.write("1) ",str(Set(0,[])),",", s,r"$\not \in \tau$")
         return False
 
 
-    print("1) ",str(Set(0,[])),",", s,"E τ.")
-    print("---------------------------------------------")
+    st.write("1) ",str(Set(0,[])),",", s,r"$\in \tau$.")
+    st.divider()
 
 
 
     #Combinations of families Union
-    print("2) La union de todas la posibles familias de conjuntos de τ")
+    st.write("2) La union de todas la posibles familias de conjuntos de τ")
     flag2 = True
     for i in range(2,len(T)+1):
         cm = combinations(T,i)
@@ -378,7 +378,7 @@ def whyis_topologie(T, s):
         #print(list(cm))
 
         for j in list(cm):
-            print("U",j)
+            st.write("U",j)
             FU = FamilySetUnion(j)
             blongTt = False
             for k in  T:
@@ -393,17 +393,17 @@ def whyis_topologie(T, s):
         #print("-------------")
 
     if(flag2 == False):
-        print("¬(E) τ.")
+        st.write(r"$\not \in \tau$.")
         return False
     else:
-        print("E τ.")
+        st.write(r"$\in \tau$.")
 
-    print("---------------------------------------------")
+    st.divider()
     pairs = list(combinations(T,2))
-    print("3) La intersección de todos los posibles pares de elementos de τ")
+    st.write("3) La intersección de todos los posibles pares de elementos de τ")
     flag3 =  True
     for i in  range(0,len((pairs))):
-        print(pairs[i][0],"n",pairs[i][1])
+        st.write(pairs[i][0],"n",pairs[i][1])
         intr = pairs[i][0].Intersection(pairs[i][1])
         gg = False
         for j in T:
@@ -415,10 +415,10 @@ def whyis_topologie(T, s):
             break
 
     if(flag3 == False):
-        print("¬(E) τ.")
+        st.write(r"$\not \in \tau$.")
         return False
 
-    print("E τ.")
+    st.write(r"$\in \tau$.")
     return True
 
 ##S1 = Set(2, [1,2])
@@ -481,7 +481,16 @@ with cols1[1]:
     if st.button('Calcular'):
         with st.spinner('Espera un momento, estamos calculando las topologías ⌛...'):
             topologies, notopologies = topologies_of_Set(stet)
-        st.data_editor(pd.DataFrame(topologies).fillna(""))
+
+        op = st.selectbox('Seleccione una Opción', ['Topologías','No Topologías'])
+        if op == 'Topologías':
+            st.data_editor(pd.DataFrame(topologies).fillna(""))
+            indx = st.selectbox('Seleccione un Indice', list(range(len(topologies))))
+            whyis_topologie(topologies[indx],stet)
+        else:
+            st.data_editor(pd.DataFrame(notopologies).fillna(""))
+            indx = st.selectbox('Seleccione un Indice', list(range(len(notopologies))))
+            whyis_topologie(notopologies[indx],stet)
 
 st.header('Conjuntos Abiertos y Cerrados en un Espacio Topológico')
 st.divider()
