@@ -8,3 +8,5 @@ streamlit-code-editor==0.1.8
 hydralit-components==1.0.10
 streamlit-authenticator==0.2.2
 streamlit-lottie==0.0.5
+stmol==0.0.9
+ipython-genutils==0.2.0
