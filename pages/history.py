@@ -129,9 +129,39 @@ with cols4[3]:
 
 
 
+pdb_ids =[
+    "1A3N",  # Hemoglobin
+    "1BNA",  # DNA Double Helix
+    "1GFL",  # Green Fluorescent Protein
+    "1ZEH",  # Insulin
+    "4V5D",  # Ribosome
+    "4AKE",  # Adenylate Kinase
+    "2VIS",  # Vitamin B12 Transporter
+    "3HFM",  # HIV-1 Protease
+    "6DDE",  # CRISPR-Cas9 DNA Complex
+    "2DRE"   # DNA Recombinase
+]
+mole = st.selectbox('Seleccione la estructura biológica: ',pdb_ids)
 
-showmol(render_pdb(id = '1A5Y'),700,700)
+showmol(render_pdb(id = mole),700,700)
 
+
+pdb_dict = {
+    "1A3N": "Hemoglobina - Proteína que transporta el oxígeno en los glóbulos rojos.",
+    "1BNA": "Doble hélice de ADN - La estructura icónica del ADN.",
+    "1GFL": "Proteína de Fluorescencia Verde (GFP) - Usada como marcador en biología molecular debido a su fluorescencia natural.",
+    "1ZEH": "Insulina - Hormona que regula los niveles de azúcar en la sangre.",
+    "4V5D": "Ribosoma - La estructura celular responsable de la síntesis de proteínas en todos los organismos.",
+    "4AKE": "Adenylate Kinase - Una enzima que participa en la transferencia de energía en las células.",
+    "2VIS": "Transportador de Vitamina B12 - Proteína involucrada en el transporte de vitamina B12.",
+    "3HFM": "Proteasa del VIH-1 - Enzima crucial para la replicación del VIH.",
+    "6DDE": "Complejo CRISPR-Cas9 DNA - Componente esencial del sistema de edición genética CRISPR-Cas9.",
+    "2DRE": "Recombinasa de ADN - Enzima que facilita la recombinación del ADN en procesos genéticos."
+}
+
+dataa = pdb_dict[mole]
+
+st.info(dataa)
 
 
 cols5 = st.columns(5)
