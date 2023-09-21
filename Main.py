@@ -52,12 +52,12 @@ header h1 {
   min-width: 50%;
   max-width: 100%;
   font-weight: 500;
-  color: #553c9a;
+  color: #1D1A1A;
   border-right: 4px solid #000;
   animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
   white-space: nowrap;
   overflow: hidden;
-  font-family: Courier New;
+  font-family: "Inter";
   overflow: hidden;
   text-shadow:
     1px 1px 1px blue,
@@ -84,12 +84,12 @@ header h1 {
   min-width: 50%;
   max-width: 100%;
   font-weight: 500;
-  color: #553c9a;
+  color: #1D1A1A;
   border-right: 4px solid #000;
   animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
   white-space: nowrap;
   overflow: hidden;
-  font-family: Courier New;
+  font-family: "Inter";
   overflow: hidden;
   text-shadow:
     1px 1px 1px blue,
@@ -104,12 +104,12 @@ header h1 {
   min-width: 50%;
   max-width: 100%;
   font-weight: 500;
-  color: #553c9a;
+  color: #1D1A1A;
   border-right: 4px solid #000;
   animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
   white-space: nowrap;
   overflow: hidden;
-  font-family: Courier New.;
+  font-family: "Inter";
   overflow: hidden;
   text-shadow:
     1px 1px 1px blue,
@@ -138,10 +138,10 @@ st.markdown(r'''
 
 :root {
   --bg: #FFFFFF;
-  --clr-1: #FFC436;
-  --clr-2: #337CCF;
-  --clr-3: #2681FF;
-  --clr-4: #62E715;
+  --clr-1: #00c2ff;
+  --clr-2: #33ff8c;
+  --clr-3: #ffc640;
+  --clr-4: #e54cff;
 
   --blur: 1rem;
   --fs: clamp(3rem, 8vw, 7rem);
@@ -188,7 +188,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 2;
-  mix-blend-mode: exclusion;
+  mix-blend-mode: difference;
   pointer-events: none;
 }
 
@@ -205,7 +205,7 @@ body {
 
 .aurora__item:nth-of-type(1) {
   top: -50%;
-  animation: aurora-border 6s ease-in-out infinite,
+  animation: aurora-border 20s ease-in-out infinite,
     aurora-1 12s ease-in-out infinite alternate;
 }
 
@@ -213,7 +213,7 @@ body {
   background-color: var(--clr-3);
   right: 0;
   top: 0;
-  animation: aurora-border 6s ease-in-out infinite,
+  animation: aurora-border 20s ease-in-out infinite,
     aurora-2 12s ease-in-out infinite alternate;
 }
 
@@ -221,7 +221,7 @@ body {
   background-color: var(--clr-2);
   left: 0;
   bottom: 0;
-  animation: aurora-border 6s ease-in-out infinite,
+  animation: aurora-border 20s ease-in-out infinite,
     aurora-3 8s ease-in-out infinite alternate;
 }
 
@@ -229,7 +229,7 @@ body {
   background-color: var(--clr-4);
   right: 0;
   bottom: -50%;
-  animation: aurora-border 6s ease-in-out infinite,
+  animation: aurora-border 19s ease-in-out infinite,
     aurora-4 24s ease-in-out infinite alternate;
 }
 
@@ -446,15 +446,12 @@ body {
 
 st.markdown('''
 <div class="content">
-  <h1 class="title">
-    <div class="aurora">
+  <div class="aurora">
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
-    </div>
-  </h1>
-
+  </div>
 </div>
 ''',unsafe_allow_html=True)
 
