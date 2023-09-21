@@ -19,6 +19,317 @@ st.set_page_config(
     }
 )
 
+
+st.markdown(r'''
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
+
+:root {
+  --bg: #FFFFFF;
+  --clr-1: #00c2ff;
+  --clr-2: #33ff8c;
+  --clr-3: #ffc640;
+  --clr-4: #e54cff;
+
+  --blur: 1rem;
+  --fs: clamp(3rem, 8vw, 7rem);
+  --ls: clamp(-1.75px, -0.25vw, -3.5px);
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--bg);
+  color: #fff;
+  font-family: "Inter", "DM Sans", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: var(--fs);
+  font-weight: 800;
+  letter-spacing: var(--ls);
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  margin: 0;
+}
+
+.subtitle {
+}
+
+.aurora {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  mix-blend-mode: darken;
+  pointer-events: none;
+}
+
+.aurora__item {
+  overflow: hidden;
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  background-color: var(--clr-1);
+  border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+  filter: blur(var(--blur));
+  mix-blend-mode: overlay;
+}
+
+.aurora__item:nth-of-type(1) {
+  top: -50%;
+  animation: aurora-border 6s ease-in-out infinite,
+    aurora-1 12s ease-in-out infinite alternate;
+}
+
+.aurora__item:nth-of-type(2) {
+  background-color: var(--clr-3);
+  right: 0;
+  top: 0;
+  animation: aurora-border 6s ease-in-out infinite,
+    aurora-2 12s ease-in-out infinite alternate;
+}
+
+.aurora__item:nth-of-type(3) {
+  background-color: var(--clr-2);
+  left: 0;
+  bottom: 0;
+  animation: aurora-border 6s ease-in-out infinite,
+    aurora-3 8s ease-in-out infinite alternate;
+}
+
+.aurora__item:nth-of-type(4) {
+  background-color: var(--clr-4);
+  right: 0;
+  bottom: -50%;
+  animation: aurora-border 6s ease-in-out infinite,
+    aurora-4 24s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-1 {
+  0% {
+    top: 0;
+    right: 0;
+  }
+
+  50% {
+    top: 100%;
+    right: 75%;
+  }
+
+  75% {
+    top: 100%;
+    right: 25%;
+  }
+
+  100% {
+    top: 0;
+    right: 0;
+  }
+}
+
+@keyframes aurora-2 {
+  0% {
+    top: -50%;
+    left: 0%;
+  }
+
+  60% {
+    top: 100%;
+    left: 75%;
+  }
+
+  85% {
+    top: 100%;
+    left: 25%;
+  }
+
+  100% {
+    top: -50%;
+    left: 0%;
+  }
+}
+
+@keyframes aurora-3 {
+  0% {
+    bottom: 0;
+    left: 0;
+  }
+
+  40% {
+    bottom: 100%;
+    left: 75%;
+  }
+
+  65% {
+    bottom: 40%;
+    left: 50%;
+  }
+
+  100% {
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@keyframes aurora-4 {
+  0% {
+    bottom: -50%;
+    right: 0;
+  }
+
+  50% {
+    bottom: 0%;
+    right: 40%;
+  }
+
+  90% {
+    bottom: 50%;
+    right: 25%;
+  }
+
+  100% {
+    bottom: -50%;
+    right: 0;
+  }
+}
+
+@keyframes aurora-border {
+  0% {
+    border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+  }
+
+  25% {
+    border-radius: 47% 29% 39% 49% / 61% 19% 66% 26%;
+  }
+
+  50% {
+    border-radius: 57% 23% 47% 72% / 63% 17% 66% 33%;
+  }
+
+  75% {
+    border-radius: 28% 49% 29% 100% / 93% 20% 64% 25%;
+  }
+
+  100% {
+    border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+  }
+}
+
+
+
+ h2 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  padding-bottom: 15px;
+  position: relative;
+}
+ h2:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 55px;
+  background-color: #111;
+}
+ h2:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  height: 1px;
+  width: 95%;
+  max-width: 255px;
+  background-color: #333;
+}
+
+
+ .s h1 {
+  font-size:50px;text-align:center; line-height:1.5em; padding-bottom:45px; font-family:"Playfair Display", serif; text-transform:uppercase;letter-spacing: 2px; color:#111;
+}
+
+
+ .s h1:before {
+  position: absolute;
+  left: 0;
+  bottom: 35px;
+  width: 60%;
+  left:50%; margin-left:-30%;
+  height: 1px;
+  content: "";
+  background-color: #777; z-index: 4;
+}
+ .s h1:after {
+  position:absolute;
+  width:40px; height:40px; left:50%; margin-left:-20px; bottom:0px;
+  content: '\00a7'; font-size:30px; line-height:40px; color:#c50000;
+  font-weight:400; z-index: 5;
+  display:block;
+  background-color:#f8f8f8;
+}
+
+
+.twelve h1 {
+  font-size:26px; font-weight:700;  letter-spacing:1px; text-transform:uppercase; width:160px; text-align:center; margin:auto; white-space:nowrap; padding-bottom:13px;
+}
+.twelve h1:before {
+    background-color: #c50000;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 75px;
+    margin-bottom: 5px;
+}
+.twelve h1:after {
+    background-color: #c50000;
+    content: '';
+    display: block;
+  position:absolute; right:0; bottom:0;
+    height: 3px;
+    width: 75px;
+    margin-bottom: 0.25em;
+}
+
+
+
+.thirteen h1 {
+  position:relative; font-size:20px; font-weight:700;  letter-spacing:0px; text-transform:uppercase; width:150px; text-align:center; margin:auto; white-space:nowrap; border:2px solid #222;padding:5px 11px 3px 11px;
+}
+.thirteen h1:before, .thirteen h1:after {
+    background-color: #c50000;
+    position:absolute;
+    content: '';
+    height: 7px;
+
+    width: 7px; border-radius:50%;
+    bottom: 12px;
+}
+.thirteen h1:before {
+   left:-20px;
+}
+.thirteen h1:after {
+   right:-20px;
+}
+</style>
+''',unsafe_allow_html=True)
 # Session
 
 if 'topologies' not in st.session_state:
@@ -29,7 +340,7 @@ if 'notopologies' not in st.session_state:
 
 
 
-#Created by: Lopez Martinez Sergio Demis
+#Created by: Lopez Martinez Sergio
 #this help us to identify all the topologies in a given set
 
 #the conditions we consider to say  a pair  of the form (T,s)
@@ -288,6 +599,7 @@ def topologies_of_Set(S):
     :param S: The parameter S represents a set
     :return: The function `topologies_of_Set(S)` returns two lists: `t` and `nt`.
     """
+    print('Im running :)')
 
     kk = 1
 
@@ -465,12 +777,27 @@ comentario="""
 if 'sett' not in st.session_state:
     st.session_state['sett'] = Set(3,[1,2,3])
 
-st.header('UN POCO DE TOPOLOGIA')
+#st.title('UN POCO DE TOPOLOGIA')
+
+st.markdown('''
+<div class="content">
+  <h1 class="title">UN POCO DE TOPOLOGIA
+    <div class="aurora">
+      <div class="aurora__item"></div>
+      <div class="aurora__item"></div>
+      <div class="aurora__item"></div>
+      <div class="aurora__item"></div>
+    </div>
+  </h1>
+
+</div>
+''',unsafe_allow_html=True)
+
 st.header('Espacio Topológico')
 st.divider()
 
 cols1 = st.columns([.5,.5])
-
+cont1 = st.container()
 
 with cols1[0]:
     st.write(r'''Un espacio topológico es un par ordenado $(X, \tau)$, donde $X$ es un conjunto no vacío y $\tau$ es una colección de subconjuntos de $X$ que satisface las siguientes propiedades:
@@ -485,10 +812,10 @@ Los conjuntos en $\tau$ se llaman conjuntos abiertos, y la colección $\tau$ se 
 with cols1[1]:
     st.subheader('Topologías en un conjunto finito de elementos')
     s = st.text_input('Ingrese un conjunto','{1,2,3}')
-    st.info('Ejemplo: {1,2,3,4} o 1,2,3,4')
+    st.info('Ejemplo: {1,2,3,4} o 1,2,3,4}')
     stet = readinput(s)
 
-    if st.button('Calcular') or st.session_state['topologies'] != None :
+    if (st.button('Calcular') or st.session_state['topologies'] != None) and len(s.strip().split(',')) < 5 :
         if (st.session_state['topologies']== None and st.session_state['topologies'] == None) or st.session_state['sett'] != stet:
             st.session_state['sett'] = stet
             with st.spinner('Espera un momento, estamos calculando las topologías ⌛...'):
@@ -507,8 +834,37 @@ with cols1[1]:
             indx = st.selectbox('Seleccione un Indice', list(range(len(st.session_state['notopologies']))))
             with st.expander('¿Por que no es una topología?'):
                 whyis_topologie(st.session_state['notopologies'][indx],stet)
+    else:
+        if len(s.strip().split(',')) >= 5:
+            st.warning('El conjunto con 5 o mas elementos implica un tiempo de computo de 20 minutos o más 😨 ', icon="⚠️")
+            cont1.markdown('''
+            | Número de Elementos (n) | Número de Topologías Válidas | Número de "No Topologías" |
+|-------------------------|-----------------------------|---------------------------|
+|           0             |             1               |            1              |
+|           1             |             2               |            2              |
+|           2             |             4               |            12             |
+|           3             |             29              |            35             |
+|           4             |             355             |           101             |
+|           5             |            6,786            |          1,674            |
+|           6             |           204,226           |          1,547            |
+|           7             |         8,777,608          |          32,208           |
+|           8             |       552,278,850         |         17,977            |
+|           9             |     50,651,204,504       |         8,532            |
+|          10             |    6,581,333,312,554     |        58,865           |
+|          11             | 1,200,805,559,164,394    |        110,126         |
+|          12             |322,476,036,831,006,487   |        15,228         |
+|          13             |124,368,486,718,720,872,000|   367,999,929,784,780  |
+|          14             |68,315,377,525,720,948,623,028|6,676,291,983,745,026  |
+|          15             |53,610,904,822,611,073,395,279,739,360|1,292,594,553,275,842,242,241,925|
+|          16             |63,274,971,070,023,555,506,948,029,979,547|418,582,642,539,586,773,993,950,679,615,032,892|
+|          17             |113,683,163,605,516,682,141,574,363,700,706,140|117,972,748,832,732,118,283,130,036,098,854,536,262,160|
+|          18             |318,608,750,886,299,797,611,073,464,075,027,568,151|15,892,967,091,985,884,231,048,614,178,203,829,878,290,581,284|
 
-st.header('Conjuntos Abiertos y Cerrados en un Espacio Topológico')
+            ''')
+
+
+
+st.header('Conjuntos Abiertos y Cerrados')
 st.divider()
 cols2 = st.columns([.5,.5])
 with cols2[0]:
@@ -602,3 +958,129 @@ $$
 x \text{ es un punto de acumulación de } A \iff \forall U \in \tau, \left( U \cap A \setminus \{x\} \neq \emptyset \right).
 $$
     '''
+
+
+
+cols6 = st.columns([.5,.5])
+
+
+
+
+with cols6[0]:
+    st.header('Funciones Continuas')
+    st.divider()
+    r'''
+    Sea $X$ un espacio topológico y $Y$ otro espacio topológico. Una función $f: X \rightarrow Y$ se dice continua si,
+    para cada conjunto abierto $V$ en $Y$, el conjunto preimagen $f^{-1}(V)$ es un conjunto abierto en $X$. Formalmente,
+
+Una función $f: X \rightarrow Y$ es continua si, para todo conjunto abierto $V \subseteq Y$, su preimagen $f^{-1}(V)$
+es un conjunto abierto en $X$.
+
+    '''
+
+
+with cols6[1]:
+    st.header('Funciones de Inclusión')
+    st.divider()
+    r'''
+    Una función de inclusión es una función continua que toma un subconjunto topológico $A$ de un espacio topológico $X$
+    y lo incluye en $X$ como un subconjunto con la topología relativa. Es decir, si $(X, \tau)$ es un espacio topológico
+    y $A$ es un subconjunto de $X$, la función de inclusión $i: A \rightarrow X$ está definida por $i(x) = x$ para todo
+    $x \in A$. La topología en $A$ se define como $\tau_A = \{ U \cap A \mid U \in \tau \}$.
+    '''
+
+
+
+
+
+cols7 = st.columns([.5,.5])
+
+with cols7[0]:
+    st.header('Homeomorfismos')
+    st.divider()
+    r'''
+    Dos espacios topológicos $X$ y $Y$ se dicen homeomorfos si existe una función biyectiva
+    $f: X \rightarrow Y$ y su inversa $f^{-1}: Y \rightarrow X$, ambas continuas. En otras palabras,
+    $X$ y $Y$ son homeomorfos si hay una correspondencia uno a uno entre sus conjuntos que preserva la estructura topológica.
+
+    '''
+
+with cols7[1]:
+    st.video('Videos/CirculoACuadrado.mp4')
+
+
+
+cols8 = st.columns([.5,.5])
+
+with cols8[0]:
+    st.header('Variedad Topológica')
+    r'''Una variedad topológica $M$ es un espacio topológico que localmente se asemeja a un espacio euclidiano. Más formalmente, $M$ es una colección de conjuntos abiertos $\{ U_\alpha \}$, junto con funciones de transición $\varphi_\alpha: U_\alpha \rightarrow \mathbb{R}^n$, donde $n$ es la dimensión de la variedad, que satisfacen las siguientes condiciones:
+
+   i.  La unión de los conjuntos $U_\alpha$ cubre todo el espacio $M$: $M = \bigcup_\alpha U_\alpha$.
+
+   ii. Para cada par de conjuntos $U_\alpha$ y $U_\beta$, la función de transición $\varphi_\alpha \circ \varphi_\beta^{-1}$ es continua y tiene una inversa continua.
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+temario = '''
+
+1. **Espacios Topológicos Básicos:**
+   - Conjuntos abiertos y cerrados en un espacio topológico.
+   - Conjuntos bases y subbases.
+   - Topología generada por una métrica.
+
+2. **Conexión y Separación:**
+   - Espacios conexos y componentes conexas.
+   - Espacios de Hausdorff y separación de puntos.
+   - Espacios compactos y su importancia.
+
+3. **Funciones Continuas:**
+   - Definición de continuidad en el contexto topológico.
+   - Homeomorfismos y funciones de inclusión.
+   - Espacios topológicos producto.
+
+4. **Compacidad y Propiedades de Conjuntos:**
+   - Conjuntos compactos y su relación con subconjuntos cerrados y acotados.
+   - Conjuntos de Lindelöf.
+   - Propiedad de Borel-Lebesgue.
+
+'''
