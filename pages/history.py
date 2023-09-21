@@ -124,8 +124,18 @@ with cols4[1]:
 
 
 
+with cols4[3]:
+    st.image('https://qph.cf2.quoracdn.net/main-qimg-704c8f6aef588f18512134433a7cbb6b')
 
 
 
-with cols4[2]:
-    showmol(render_pdb(id = '1A5Y'),700,700)
+
+showmol(render_pdb(id = '1A5Y'),700,700)
+
+
+
+cols5 = st.columns(5)
+
+with cols5[-1]:
+    if st.button('Siguiente'):
+        ''' Hola'''
