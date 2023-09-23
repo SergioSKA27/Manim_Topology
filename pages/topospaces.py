@@ -328,6 +328,9 @@ body {
 .thirteen h1:after {
    right:-20px;
 }
+.stVideo {
+    border-radius: 20px;
+}
 </style>
 ''',unsafe_allow_html=True)
 # Session
@@ -989,7 +992,7 @@ with cols6[1]:
 Una función $f: X \rightarrow Y$ es continua si, para todo conjunto abierto $V \subseteq Y$, su preimagen $f^{-1}(V)$
 es un conjunto abierto en $X$.'''
 
-
+st.divider()
 cols7 = st.columns([.5,.5])
 
 
