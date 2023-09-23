@@ -980,14 +980,26 @@ es un conjunto abierto en $X$.
 
 
 with cols6[1]:
-    st.header('Funciones de Inclusión')
+    st.header('Conjuntos Conexos')
     st.divider()
     r'''
-    Una función de inclusión es una función continua que toma un subconjunto topológico $A$ de un espacio topológico $X$
-    y lo incluye en $X$ como un subconjunto con la topología relativa. Es decir, si $(X, \tau)$ es un espacio topológico
-    y $A$ es un subconjunto de $X$, la función de inclusión $i: A \rightarrow X$ está definida por $i(x) = x$ para todo
-    $x \in A$. La topología en $A$ se define como $\tau_A = \{ U \cap A \mid U \in \tau \}$.
-    '''
+    **Conjuntos Conexos:**
+
+Un conjunto $X$ en un espacio topológico $T$ se dice que es conexo si no se puede expresar como la unión de dos
+conjuntos abiertos disjuntos no vacíos, es decir, si no existen conjuntos abiertos $U$ y $V$ en $T$ tales que:
+
+$$
+X = U \cup V
+$$
+
+$$
+U \cap V = \emptyset
+$$
+
+$$
+U \neq \emptyset, V \neq \emptyset
+$$
+'''
 
 
 
@@ -1006,19 +1018,26 @@ with cols7[0]:
     '''
 
 with cols7[1]:
-    st.video('Videos/CirculoACuadrado.mp4')
+    st.video('Videos/PAGINA1/Homeomorfismo.mp4')
 
 
 
 cols8 = st.columns([.5,.5])
 
 with cols8[0]:
-    st.header('Variedad Topológica')
-    r'''Una variedad topológica $M$ es un espacio topológico que localmente se asemeja a un espacio euclidiano. Más formalmente, $M$ es una colección de conjuntos abiertos $\{ U_\alpha \}$, junto con funciones de transición $\varphi_\alpha: U_\alpha \rightarrow \mathbb{R}^n$, donde $n$ es la dimensión de la variedad, que satisfacen las siguientes condiciones:
+    st.header('Conjuntos Compactos')
+    st.divider()
+    r'''
+Un conjunto $K$ en un espacio topológico $T$ se llama compacto si, para cualquier colección abierta $A_i$ de conjuntos
+en $T$ que cubre $K$ (es decir, $K \subseteq \bigcup_i A_i$), existe una subcolección finita de $A_i$ que aún cubre $K$.
 
-   i.  La unión de los conjuntos $U_\alpha$ cubre todo el espacio $M$: $M = \bigcup_\alpha U_\alpha$.
+**Propiedades de los Conjuntos Compactos:**
 
-   ii. Para cada par de conjuntos $U_\alpha$ y $U_\beta$, la función de transición $\varphi_\alpha \circ \varphi_\beta^{-1}$ es continua y tiene una inversa continua.
+- Los conjuntos compactos son cerrados en espacios de Hausdorff.
+- Los conjuntos compactos son limitados en espacios métricos.
+- El producto de conjuntos compactos en espacios topológicos también es compacto.
+- En espacios métricos, un conjunto es compacto si y solo si es secuencialmente compacto
+(cualquier secuencia tiene una subsucesión convergente).
 '''
 
 
@@ -1026,29 +1045,120 @@ with cols8[0]:
 
 
 
+cols9 = st.columns([.5,.5])
+
+
+
+with cols9[0]:
+    st.header('Espacio Métrico')
+    st.divider()
+    r'''
+Un espacio métrico es un par ordenado $(X, d)$ donde $X$ es un conjunto no vacío y $d: X \times X \rightarrow \mathbb{R}$ es una función llamada métrica que satisface las siguientes propiedades para todos los puntos $x, y, z$ en $X$:
+
+1. **Positividad:** $d(x, y) \geq 0$ (la distancia entre dos puntos es siempre no negativa).
+2. **Identidad de los Indiscernibles:** $d(x, y) = 0$ si y solo si $x = y$ (la distancia entre dos puntos es cero si y solo si son el mismo punto).
+3. **Simetría:** $d(x, y) = d(y, x)$ (la distancia entre dos puntos es simétrica).
+4. **Desigualdad Triangular:** $d(x, z) \leq d(x, y) + d(y, z)$ (la distancia entre dos puntos es siempre menor o igual a la suma de las distancias a un tercer punto).
+
+**Bolas Abiertas en Espacios Métricos:**
+
+La bola abierta de radio $\epsilon > 0$ centrada en un punto $x$ en un espacio métrico $(X, d)$ se denota como $B_\epsilon(x)$ y se define como:
+
+$$
+B_\epsilon(x) = \{y \in X \mid d(x, y) < \epsilon\}
+$$
+'''
+
+
+with cols9[1]:
+    st.header('Espacios Métricos Completos y Compactos')
+    st.divider()
+    r'''
+    - Un espacio métrico $(X, d)$ se dice que es completo si cada sucesión de Cauchy en $X$ converge a un punto en $X$.
+- Un espacio métrico $(X, d)$ se dice que es compacto si cada cubierta abierta de $X$ tiene una subcubierta finita, es decir, si cada colección de conjuntos abiertos que cubre $X$ puede reducirse a una colección finita que aún cubre $X$.
+
+    '''
+
+
+
+
+cols10 = st.columns([.5,.5])
+
+
+
+with cols10[0]:
+    st.header('Espacio de Hausdorff')
+    st.divider()
+    r'''
+Un espacio topológico $X$ se dice que es un espacio de Hausdorff (o $T_2$) si, para cada par de puntos distintos $x$
+y $y$ en $X$, existen conjuntos abiertos $U$ y $V$ en $X$ tales que $x$ pertenece a $U$, $y$ pertenece a $V$, y $U$ y
+$V$ son disjuntos. En otras palabras, en un espacio de Hausdorff, es posible separar puntos distintos con conjuntos abiertos disjuntos.
+
+**Propiedades de los Espacios de Hausdorff:**
+
+- Los espacios de Hausdorff son $T_1$ (separados por puntos).
+- Cualquier subconjunto finito de un espacio de Hausdorff es cerrado.
+'''
+
+
+
+with cols10[1]:
+    st.header('Propiedades de $T_0, T_1, T_2$ y $T_3$')
+    st.divider()
+    r'''
+**Propiedades de T0 y T1:**
+
+- Un espacio topológico $X$ se dice que es $T_0$ si, para cada par de puntos distintos $x$ e $y$ en $X$, existe un
+conjunto abierto $U$ que contiene a uno de los puntos pero no al otro.
+- Un espacio topológico $X$ se dice que es $T_1$ si, para cada par de puntos distintos $x$ e $y$ en $X$,
+existen conjuntos abiertos $U$ y $V$ tales que $x$ pertenece a $U$, $y$ pertenece a $V$, y $U$ no contiene a $y$ ni $V$ contiene a $x$.
+
+**Espacios de T2 (Hausdorff) y T3:**
+
+- Un espacio topológico $X$ es $T_2$ o de Hausdorff si es un espacio de Hausdorff.
+- Un espacio topológico $X$ es $T_3$ si es $T_1$ y, para cada par de conjuntos cerrados disjuntos $A$ y $B$ en $X$,
+existen conjuntos abiertos disjuntos $U$ y $V$ tales que $A$ está contenido en $U$ y $B$ está contenido en $V$.
+
+
+'''
+
+
+
+
+cols11 = st.columns([.5,.5])
+
+
+
+with cols11[0]:
+    st.header('Variedades Topológicas')
+    st.divider()
+    r'''
+Una variedad topológica es un espacio topológico $(M, \mathcal{T})$ que satisface las siguientes condiciones:
+
+1. $M$ es un conjunto no vacío.
+2. $\mathcal{T}$ es una topología en $M$ que es Hausdorff y localmente euclidiana, es decir, para cada punto $p$ en $M$,
+existe un entorno $U$ de $p$ en $\mathcal{T}$ que es homeomorfo a un subconjunto abierto de $\mathbb{R}^n$ para algún $n$.
+
+'''
 
 
 
 
 
+with cols11[1]:
+    st.header('Variedades de Dimensión n')
+    st.divider()
+    r'''
+Una variedad topológica $M$ se llama una variedad de dimensión $n$ si cada punto $p$ en $M$ tiene un entorno homeomorfo
+a un subconjunto abierto de $\mathbb{R}^n$. En otras palabras, localmente, una variedad de dimensión $n$ se parece a $\mathbb{R}^n$.
 
+**Ejemplos de Variedades Topológicas:**
 
+- La esfera $S^n$ es una variedad topológica de dimensión $n$.
+- El plano euclidiano $\mathbb{R}^n$ es una variedad topológica de dimensión $n$.
+- El toro $T^2$ es una variedad topológica de dimensión $2$.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+'''
 
 
 
