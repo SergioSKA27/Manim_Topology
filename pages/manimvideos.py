@@ -41,7 +41,7 @@ videos = [
 "Videos/TorusKnot2Dto3D.mp4"]
 
 
-os.listdir('Videos')
+st.write(os.listdir('Videos'), os.listdir('Videos/PAGINA1'))
 
 # Widget de selección de video
 selected_video = st.selectbox("Selecciona un video:", videos)

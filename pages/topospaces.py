@@ -876,7 +876,7 @@ with cols2[0]:
 '''
 
 with cols2[1]:
-    tabs1 = st.tabs(["Abiertos Ejemplo 1", "Abiertos Ejemplo 2"])
+    tabs1 = st.tabs(["Abiertos Ejemplo 1", "Abiertos Ejemplo 2",'Cerrados Ejemplo 1'])
 
     with tabs1[0]:
         st.video('Videos/PAGINA1/Openset.mp4')
@@ -884,9 +884,12 @@ with cols2[1]:
     with tabs1[1]:
         st.video('Videos/PAGINA1/Openset2.mp4')
 
+    with tabs1[2]:
+        st.video('Videos/PAGINA1/Closedset.mp4')
 
 
 
+st.divider()
 cols3 = st.columns([.5,.5])
 
 with cols3[0]:
@@ -932,14 +935,14 @@ with cols4[1]:
     st.video('Videos/PAGINA1/PuntoF.mp4')
 
 
-
+st.divider()
 cols5 = st.columns([.5,.5])
 
-with cols5[0]:
+with cols5[1]:
     st.header('Frontera de un Conjunto')
     st.divider()
     r'''
-La frontera de un conjunto $A$ en un espacio topológico $(X, \tau)$, denotada como $\partial A$, es el conjunto de todos los puntos frontera de $A$, es decir,
+La frontera de un conjunto $A$ en un espacio topológico $(X,\tau)$ denotada como $\partial A$, es el conjunto de todos los puntos frontera de $A$, es decir,
 
 $$
 \partial A = \{ x \in X \mid x \text{ es un punto frontera de } A \}.
@@ -948,7 +951,20 @@ $$
 
 
 
-with cols5[1]:
+
+with cols5[0]:
+
+    st.video('Videos/PAGINA1/Frontera.mp4')
+
+
+st.divider()
+cols6 = st.columns([.5,.5])
+
+
+
+
+with cols6[0]:
+
     st.header('Punto de Acumulación')
     st.divider()
     r'''
@@ -961,12 +977,9 @@ $$
 
 
 
-cols6 = st.columns([.5,.5])
 
+with cols6[1]:
 
-
-
-with cols6[0]:
     st.header('Funciones Continuas')
     st.divider()
     r'''
@@ -974,17 +987,16 @@ with cols6[0]:
     para cada conjunto abierto $V$ en $Y$, el conjunto preimagen $f^{-1}(V)$ es un conjunto abierto en $X$. Formalmente,
 
 Una función $f: X \rightarrow Y$ es continua si, para todo conjunto abierto $V \subseteq Y$, su preimagen $f^{-1}(V)$
-es un conjunto abierto en $X$.
-
-    '''
+es un conjunto abierto en $X$.'''
 
 
-with cols6[1]:
+cols7 = st.columns([.5,.5])
+
+
+with cols7[0]:
     st.header('Conjuntos Conexos')
     st.divider()
     r'''
-    **Conjuntos Conexos:**
-
 Un conjunto $X$ en un espacio topológico $T$ se dice que es conexo si no se puede expresar como la unión de dos
 conjuntos abiertos disjuntos no vacíos, es decir, si no existen conjuntos abiertos $U$ y $V$ en $T$ tales que:
 
@@ -1001,13 +1013,10 @@ U \neq \emptyset, V \neq \emptyset
 $$
 '''
 
+st.divider()
+cols8 = st.columns([.5,.5])
 
-
-
-
-cols7 = st.columns([.5,.5])
-
-with cols7[0]:
+with cols8[0]:
     st.header('Homeomorfismos')
     st.divider()
     r'''
@@ -1017,14 +1026,14 @@ with cols7[0]:
 
     '''
 
-with cols7[1]:
+with cols8[1]:
     st.video('Videos/PAGINA1/Homeomorfismo.mp4')
 
 
+st.divider()
+cols9 = st.columns([.5,.5])
 
-cols8 = st.columns([.5,.5])
-
-with cols8[0]:
+with cols9[0]:
     st.header('Conjuntos Compactos')
     st.divider()
     r'''
@@ -1044,12 +1053,12 @@ en $T$ que cubre $K$ (es decir, $K \subseteq \bigcup_i A_i$), existe una subcole
 
 
 
+st.divider()
+cols10 = st.columns([.5,.5])
 
-cols9 = st.columns([.5,.5])
 
 
-
-with cols9[0]:
+with cols10[0]:
     st.header('Espacio Métrico')
     st.divider()
     r'''
@@ -1070,7 +1079,7 @@ $$
 '''
 
 
-with cols9[1]:
+with cols10[1]:
     st.header('Espacios Métricos Completos y Compactos')
     st.divider()
     r'''
@@ -1081,12 +1090,12 @@ with cols9[1]:
 
 
 
+st.divider()
+cols11 = st.columns([.5,.5])
 
-cols10 = st.columns([.5,.5])
 
 
-
-with cols10[0]:
+with cols11[0]:
     st.header('Espacio de Hausdorff')
     st.divider()
     r'''
@@ -1102,7 +1111,7 @@ $V$ son disjuntos. En otras palabras, en un espacio de Hausdorff, es posible sep
 
 
 
-with cols10[1]:
+with cols11[1]:
     st.header('Propiedades de $T_0, T_1, T_2$ y $T_3$')
     st.divider()
     r'''
@@ -1124,12 +1133,12 @@ existen conjuntos abiertos disjuntos $U$ y $V$ tales que $A$ está contenido en 
 
 
 
+st.divider()
+cols12 = st.columns([.5,.5])
 
-cols11 = st.columns([.5,.5])
 
 
-
-with cols11[0]:
+with cols12[0]:
     st.header('Variedades Topológicas')
     st.divider()
     r'''
@@ -1145,7 +1154,7 @@ existe un entorno $U$ de $p$ en $\mathcal{T}$ que es homeomorfo a un subconjunto
 
 
 
-with cols11[1]:
+with cols12[1]:
     st.header('Variedades de Dimensión n')
     st.divider()
     r'''
