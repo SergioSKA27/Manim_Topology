@@ -866,7 +866,7 @@ with cols1[1]:
             ''')
 
 
-
+st.divider()
 st.header('Conjuntos Abiertos y Cerrados')
 st.divider()
 cols2 = st.columns([.5,.5])
@@ -916,7 +916,7 @@ donde $B_\epsilon(x)$ representa la bola abierta centrada en $x$ con radio $\eps
     '''
 
 
-
+st.divider()
 st.header('Punto Frontera')
 st.divider()
 cols4 = st.columns([.5,.5])
