@@ -518,4 +518,151 @@ with cols5[1]:
     ''''''
 
 
+sac.divider(label='', icon='balloon-heart', align='center',key='div6')
 
+cols6 = st.columns([.5,.5])
+
+with cols6[0]:
+    st.header('Nudos Anfiqueirales')
+    st.divider()
+    r'''
+
+**Definición:** Un nudo $K$ es anfiqueiral si existe un homeomorfismo que invierte la orientación
+$h : \mathbb{R}^3 \rightarrow \mathbb{R}^3$ tal que $h(K) = K$.
+
+Una formulación equivalente se presenta en el siguiente lema.
+
+**Definición:** La imagen especular de un nudo $K$ es la imagen de $K$ bajo la reflexión $R$ definida por $(x, y, z) \mapsto (x, y, -z)$.
+
+**Lema:** Un nudo es anfiqueiral si y solo si existe un homeomorfismo que preserva la orientación de $\mathbb{R}^3$
+en $\mathbb{R}^3$ que lleva a $K$ a su imagen especular.
+
+La demostración del **Lema** se basa en la definición de un nudo anfiqueiral y la relación entre un nudo y su imagen especular. Aquí está la demostración:
+
+**Demostración del Lema:**
+
+Supongamos que tenemos un nudo $K$ que es anfiqueiral, lo que significa que existe un homeomorfismo $h : \mathbb{R}^3 \rightarrow \mathbb{R}^3$ que invierte la orientación y que lleva a $K$ en sí mismo, es decir, $h(K) = K$.
+
+Definimos la reflexión $R : \mathbb{R}^3 \rightarrow \mathbb{R}^3$ como la transformación que refleja cada punto $(x, y, z)$ en el plano $z = 0$, es decir, $R(x, y, z) = (x, y, -z)$. Claramente, $R$ es un homeomorfismo que preserva la orientación, ya que no altera la orientación de las figuras en el espacio tridimensional.
+
+Ahora, consideramos la imagen especular de $K$, que llamaremos $K'$. $K'$ es simplemente la aplicación de $R$ a todos los puntos de $K$, es decir, $K' = R(K)$.
+
+Como $h$ es un homeomorfismo que lleva a $K$ en sí mismo (ya que $h(K) = K$), podemos aplicar $h$ tanto antes como después de aplicar $R$ a $K$. Esto nos da:
+
+$$
+h(R(K)) = R(h(K)) = R(K)
+$$
+
+Por lo tanto, hemos demostrado que existe un homeomorfismo $h : \mathbb{R}^3 \rightarrow \mathbb{R}^3$ (que es la composición de $h$ y $R$) que preserva la orientación y que lleva a $K$ en su imagen especular $K'$, lo que demuestra la afirmación "si" del lema.
+
+La demostración en la dirección opuesta (la afirmación "solo si") es análoga y se basa en el hecho de que si un nudo es equivalente a su imagen especular, entonces existe un homeomorfismo que invierte la orientación que lleva al nudo en sí mismo.
+
+Por lo tanto, hemos demostrado que un nudo es anfiqueiral si y solo si existe un homeomorfismo que preserva la orientación que manda al nudo en su imagen especular, lo que completa la demostración del Lema.
+'''
+
+with cols6[1]:
+    ''''''
+
+
+sac.divider(label='', icon='balloon-heart', align='center',key='div7')
+
+cols7 = st.columns([.5,.5])
+
+with cols7[0]:
+    st.header('Nudos Invertibles')
+    st.divider()
+    r'''
+
+De la misma manera en que cualquier homeomorfismo de $\mathbb{R}^3$ en sí mismo preserva o invierte la orientación,
+lo mismo ocurre con cualquier homeomorfismo de $K$ en sí mismo. Al dar una dirección al nudo $K$, la función $f$
+preserva o invierte la orientación según si el orden de los puntos en $K$ se conserva o se invierte.
+
+**Definición:** Un nudo $K$ se considera invertible si existe un homeomorfismo de $\mathbb{R}^3$ en sí mismo que
+preserva la orientación, y además, la restricción de este homeomorfismo a $K$, denotada como $h|_K$, es un
+homeomorfismo que invierte la orientación de $K$ en sí mismo.
+
+Esta definición establece que un nudo se considera invertible cuando puede ser transformado mediante un homeomorfismo
+que preserva la orientación en el espacio tridimensional $\mathbb{R}^3$, y al mismo tiempo, cuando esta transformación
+invierte la orientación del propio nudo $K$.
+'''
+
+with cols7[1]:
+    ''''''
+
+sac.divider(label='', icon='balloon-heart', align='center',key='div8')
+
+cols8 = st.columns([.5,.5])
+
+with cols8[0]:
+    st.header('Nudos Dóciles vs. Nudos Salvajes')
+    st.divider()
+    r'''
+Vamos a focalizar nuestro estudio en una categoría de nudos que presentan un comportamiento más manejable.
+
+**Definición:** Un nudo poligonal es aquel que está compuesto por una unión finita de segmentos de recta, denominados
+aristas, cuyos puntos extremos definen los vértices del nudo. Un nudo se clasifica como "dócil" si es equivalente a un
+nudo poligonal. Por otro lado, los nudos que no cumplen esta propiedad se denominan "salvajes."
+
+Todos los ejemplos previamente mencionados son ejemplos de nudos dóciles. A partir de este punto, nos centraremos
+exclusivamente en el estudio de nudos dóciles.
+'''
+
+with cols8[1]:
+    ''''''
+
+sac.divider(label='', icon='balloon-heart', align='center',key='div9')
+
+cols9 = st.columns([.5,.5])
+
+with cols9[0]:
+    st.header('Nudos Toroidales')
+    st.divider()
+    r'''
+
+A continuación, definiremos un conjunto de nudos que comparten ciertas propiedades destacadas.
+Estos nudos se conocen como nudos toroidales porque se construyen en una superficie conocida como toro.
+Los nudos toroidales no solo son interesantes por sí mismos, sino que también son importantes porque,
+en muchas ocasiones, ayudan a comprender propiedades generales de los nudos.
+
+El toro, denotado como $T$, de manera intuitiva, es el espacio definido por la superficie de una dona.
+
+A continuación, presentaremos tres descripciones diferentes del toro, cada una de las cuales nos proporciona diferentes formas de construir nudos toroidales.
+
+**(a) Como Espacio Producto:** Consideremos el círculo unitario en el plano complejo $\mathbb{C}$, es decir, el conjunto de puntos dado por:
+$$
+S^1 = \{ e^{i\theta} \mid 0 \leq \theta < 2\pi \}.
+$$
+Entonces, el toro es el espacio $S^1 \times S^1$.
+'''
+
+with cols9[1]:
+    r'''
+    **(b) Como Espacio Cociente:** Tomemos $X$ como el cuadrado unitario en $\mathbb{R}^2$, es decir:
+$$
+X = \{ (x, y) \mid 0 \leq x, y \leq 1 \}.
+$$
+Luego, el toro $T$ es el espacio cociente $X/\sim$, donde la relación de equivalencia se define de la siguiente manera:
+$$
+(0, y) \sim (1, y) \quad \text{y} \quad (x, 0) \sim (x, 1).
+$$
+'''
+
+sac.divider(label='', icon='balloon-heart', align='center',key='div10')
+
+cols10 = st.columns([.5,.5])
+
+with cols10[0]:
+    st.header('Definición Geométrica del Toro')
+    st.divider()
+    r'''
+El toro, considerado como un subespacio de $\mathbb{R}^3$, se define mediante la siguiente expresión:
+$$
+\{ (x, y, z) \in \mathbb{R}^3 \mid (\sqrt{x^2 + y^2} - 2)^2 + z^2 = 1 \}.
+$$
+Esta definición representa la superficie obtenida al rotar la circunferencia $(x - 2)^2 + z^2 = 1$ en el plano $xz$,
+con centro en el punto $(2, 0, 0)$, alrededor del eje $z$. Esta rotación nos proporciona la representación geométrica de una dona.
+'''
+
+with cols10[1]:
+    r'''
+    '''
