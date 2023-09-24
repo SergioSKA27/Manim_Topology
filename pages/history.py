@@ -6,6 +6,8 @@ import copy
 import pandas as pd
 from threading  import Thread
 from stmol import *
+import streamlit_antd_components as sac
+from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(
     page_title='Nudos y Enlaces',
@@ -347,7 +349,7 @@ st.markdown('''
 
 </div>
 ''',unsafe_allow_html=True)
-st.divider()
+sac.divider(label='', icon='bank', align='center',key='div2')
 '''
 Desde tiempos antiguos hasta hoy, los seres humanos han utilizado nudos, trenzas y enlaces en diversas aplicaciones.
 Por ejemplo, nuestros ancestros usaron nudos para unir piedras a palos y crear herramientas como hachas.
@@ -494,4 +496,4 @@ cols5 = st.columns(5)
 
 with cols5[-1]:
     if st.button('Siguiente'):
-        ''' Hola'''
+        switch_page("topospaces")

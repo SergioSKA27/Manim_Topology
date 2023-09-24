@@ -5,6 +5,7 @@ import time
 import copy
 import pandas as pd
 from threading  import Thread
+import streamlit_antd_components as sac
 
 st.set_page_config(
     page_title='Nudos y Enlaces',
@@ -866,7 +867,7 @@ with cols1[1]:
             ''')
 
 
-st.divider()
+sac.divider(label='', icon='arrow-down-square', align='center')
 st.header('Conjuntos Abiertos y Cerrados')
 st.divider()
 cols2 = st.columns([.5,.5])
@@ -892,7 +893,7 @@ with cols2[1]:
 
 
 
-st.divider()
+sac.divider(label='', icon='arrow-down-square', align='center',key='div2')
 cols3 = st.columns([.5,.5])
 
 with cols3[0]:
@@ -916,7 +917,7 @@ donde $B_\epsilon(x)$ representa la bola abierta centrada en $x$ con radio $\eps
     '''
 
 
-st.divider()
+sac.divider(label='', icon='arrow-down-square', align='center',key='div3')
 st.header('Punto Frontera')
 st.divider()
 cols4 = st.columns([.5,.5])
@@ -938,7 +939,7 @@ with cols4[1]:
     st.video('Videos/PAGINA1/PuntoF.mp4')
 
 
-st.divider()
+sac.divider(label='', icon='arrow-down-square', align='center',key='div4')
 cols5 = st.columns([.5,.5])
 
 with cols5[1]:
@@ -960,7 +961,7 @@ with cols5[0]:
     st.video('Videos/PAGINA1/Frontera.mp4')
 
 
-st.divider()
+sac.divider(label='', icon='arrow-down-square', align='center',key='div5')
 cols6 = st.columns([.5,.5])
 
 
@@ -992,7 +993,7 @@ with cols6[1]:
 Una función $f: X \rightarrow Y$ es continua si, para todo conjunto abierto $V \subseteq Y$, su preimagen $f^{-1}(V)$
 es un conjunto abierto en $X$.'''
 
-st.divider()
+sac.divider(label='', icon='arrow-down-square', align='center',key='div6')
 cols7 = st.columns([.5,.5])
 
 
@@ -1016,7 +1017,7 @@ U \neq \emptyset, V \neq \emptyset
 $$
 '''
 
-st.divider()
+sac.divider(label='', icon='arrow-down-square', align='center',key='div7')
 cols8 = st.columns([.5,.5])
 
 with cols8[0]:
@@ -1033,7 +1034,7 @@ with cols8[1]:
     st.video('Videos/PAGINA1/Homeomorfismo.mp4')
 
 
-st.divider()
+sac.divider(label='', icon='arrow-down-square', align='center',key='div8')
 cols9 = st.columns([.5,.5])
 
 with cols9[0]:
@@ -1056,7 +1057,7 @@ en $T$ que cubre $K$ (es decir, $K \subseteq \bigcup_i A_i$), existe una subcole
 
 
 
-st.divider()
+sac.divider(label='', icon='arrow-down-square', align='center',key='div9')
 cols10 = st.columns([.5,.5])
 
 
@@ -1093,7 +1094,7 @@ with cols10[1]:
 
 
 
-st.divider()
+sac.divider(label='', icon='arrow-down-square', align='center',key='div10')
 cols11 = st.columns([.5,.5])
 
 
@@ -1136,7 +1137,7 @@ existen conjuntos abiertos disjuntos $U$ y $V$ tales que $A$ está contenido en 
 
 
 
-st.divider()
+sac.divider(label='', icon='arrow-down-square', align='center',key='div11')
 cols12 = st.columns([.5,.5])
 
 
@@ -1173,14 +1174,50 @@ a un subconjunto abierto de $\mathbb{R}^n$. En otras palabras, localmente, una v
 '''
 
 
+sac.divider(label='', icon='arrow-down-square', align='center',key='div12')
+cols13 = st.columns([.5,.5])
 
 
 
+with cols13[0]:
+
+    st.header('Homotopía')
+    st.divider()
+    r'''
+En topología, dos aplicaciones continuas $f$ y $g$ de un espacio topológico $X$ en un espacio topológico $Y$ se
+consideran homotópicas si existe una función continua $H: X \times [0,1] \rightarrow Y$ tal que, para todo $x$ en $X$,
+$H(x,0) = f(x)$ y $H(x,1) = g(x)$. La función $H$ se llama homotopía entre $f$ y $g$, y esta noción establece una
+relación de equivalencia entre aplicaciones continuas.
+'''
+
+with cols13[1]:
+    st.video('Videos/PAGINA1/Homotopia.mp4')
 
 
+sac.divider(label='', icon='arrow-down-square', align='center',key='div13')
+cols14 = st.columns([.5,.5])
 
+with cols14[0]:
 
+    st.header('Caminos y Lazos')
+    st.divider()
+    r'''
+- Un camino en un espacio topológico $X$ es una función continua $\gamma: [0, 1] \rightarrow X$. El punto $\gamma(0)$
+se llama el punto inicial y $\gamma(1)$ el punto final del camino.
 
+- Un lazo en un espacio topológico $X$ es un camino $\gamma: [0, 1] \rightarrow X$ tal que $\gamma(0) = \gamma(1)$,
+es decir, el punto inicial y el punto final del camino son el mismo.
+'''
+
+with cols14[1]:
+
+    st.header('Grupo Fundamental')
+    st.divider()
+    r'''
+El grupo fundamental $\pi_1(X, x_0)$ de un espacio topológico $X$ con un punto base $x_0$ es un grupo que consiste en
+clases de equivalencia de lazos basados en $x_0$, donde la operación del grupo es la concatenación de lazos y la inversa
+de un lazo es su inverso homotópico.
+'''
 
 
 temario = '''
