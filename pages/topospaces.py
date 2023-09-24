@@ -516,6 +516,13 @@ class Set:
                 Ps.append(Set(len(e),e))
         return Ps
 
+    def lenn(self):
+        """
+        The function returns the length of a list or string.
+        :return: The length of the "elements" attribute of the object.
+        """
+        return len(self.elements)
+
 
 def FamilySetUnion(F) -> Set:
     U = copy.copy(F[0])
@@ -606,6 +613,9 @@ def topologies_of_Set(S):
     print('Im running :)')
 
     kk = 1
+    if S.lenn() > 4:
+        print('To bigger :(')
+        return [],[]
 
     if S.is_emptyset():
         return [(S,S)],[]
