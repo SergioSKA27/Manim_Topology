@@ -74,6 +74,7 @@ with st.sidebar:
         sac.MenuItem('Referencias', icon='card-heading'),
         sac.MenuItem('Github', icon='github', href='https://github.com/SergioSKA27'),
         sac.MenuItem('Streamlit', icon='cpu', href='https://streamlit.io/'),
+        sac.MenuItem('Autor: Lopez Martinez Sergio Demis', icon='person-circle',disabled=True),
 
     ]),
 
