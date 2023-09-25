@@ -95,7 +95,8 @@ if men == 'Nudos Toroidales':
     switch_page('torusknots')
 
 
-
+if men == 'Enlaces':
+    switch_page('links')
 
 
 st.markdown(r'''

@@ -1,14 +1,19 @@
 import streamlit as st
-from streamlit_lottie import st_lottie
-from streamlit_extras.switch_page_button import switch_page
+from itertools import combinations, permutations,chain
+from os import system
 import time
-from st_click_detector import click_detector
+import copy
+import pandas as pd
+from threading  import Thread
 import streamlit_antd_components as sac
-# Título de la aplicación
+from streamlit_extras.switch_page_button import switch_page
+
+
+
 st.set_page_config(
     page_title='Nudos y Enlaces',
     page_icon=':robot_face:',
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="collapsed",
     menu_items={
 
@@ -17,6 +22,10 @@ st.set_page_config(
 ©Todos los derechos reservados 2023."""
     }
 )
+
+
+
+
 st.markdown('''
 <style>
 .css-79elbk {
@@ -72,7 +81,7 @@ with st.sidebar:
 
     ]),
 
-], format_func='title', open_all=True)
+], format_func='title', open_all=True,index=7)
 
 
 if men == 'Topología':
@@ -85,124 +94,13 @@ if men == 'Definiciones':
     switch_page('knotsdef')
 
 
+if men == 'Pagina Principal':
+    switch_page('Main')
+
+
 if men == 'Nudos Toroidales':
     switch_page('torusknots')
 
-if men == 'Enlaces':
-    switch_page('links')
-
-page_bg_img = '''
-<style>
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 5;
-  font-size: 100px;
-}
-.centered-text {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0);
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            z-index: 5;
-        }
-header {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-}
-
-header h1 {
-  font-size: 100px;
-  min-width: 50%;
-  max-width: 100%;
-  font-weight: 500;
-  color: #1D1A1A;
-  border-right: 4px solid #000;
-  animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: "Inter";
-  overflow: hidden;
-  text-shadow:
-    1px 1px 1px blue,
-    2px 2px 1px blue;
-}
-@keyframes cursor{
-  0%, 100%{border-color: transparent;}
-  50%{border-color: #000;}
-}
-
-@keyframes typing{
-  0%{ width: 0ch} /*Text is hidden*/
-  30%{ width: 16ch;} /*The enitre header will be typed out*/
-  80%{ width: 16ch;} /*Text stays visible*/
-  90%{ width: 0ch;} /*Text is deleted*/
-  100%{ width: 0ch;} /*Text stays hidden*/
-}
-
-/* For Mobile Portrait View */
-@media screen and (max-device-width: 480px)
-    and (orientation: portrait) {
-    header h1 {
-  font-size: 40px;
-  min-width: 50%;
-  max-width: 100%;
-  font-weight: 500;
-  color: #1D1A1A;
-  border-right: 4px solid #000;
-  animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: "Inter";
-  overflow: hidden;
-  text-shadow:
-    1px 1px 1px blue,
-    2px 2px 1px blue;
-   }
-}
-/* For Mobile Landscape View */
-@media screen and (max-device-width: 640px)
-    and (orientation: landscape) {
-    header h1 {
-   font-size: 40px;
-  min-width: 50%;
-  max-width: 100%;
-  font-weight: 500;
-  color: #1D1A1A;
-  border-right: 4px solid #000;
-  animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: "Inter";
-  overflow: hidden;
-  text-shadow:
-    1px 1px 1px blue,
-    2px 2px 1px blue;
-   }
-}
-
-</style>
-
-
-<div class="centered-text">
-   <header>
-        <h1>Nudos y Enlaces</h1>
-    </header>
-</div>
-'''
-
-st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
 
@@ -257,13 +155,13 @@ body {
 }
 
 .aurora {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 2;
-  mix-blend-mode: difference;
+  mix-blend-mode: darken;
   pointer-events: none;
 }
 
@@ -280,7 +178,7 @@ body {
 
 .aurora__item:nth-of-type(1) {
   top: -50%;
-  animation: aurora-border 20s ease-in-out infinite,
+  animation: aurora-border 6s ease-in-out infinite,
     aurora-1 12s ease-in-out infinite alternate;
 }
 
@@ -288,7 +186,7 @@ body {
   background-color: var(--clr-3);
   right: 0;
   top: 0;
-  animation: aurora-border 20s ease-in-out infinite,
+  animation: aurora-border 6s ease-in-out infinite,
     aurora-2 12s ease-in-out infinite alternate;
 }
 
@@ -296,7 +194,7 @@ body {
   background-color: var(--clr-2);
   left: 0;
   bottom: 0;
-  animation: aurora-border 20s ease-in-out infinite,
+  animation: aurora-border 6s ease-in-out infinite,
     aurora-3 8s ease-in-out infinite alternate;
 }
 
@@ -304,7 +202,7 @@ body {
   background-color: var(--clr-4);
   right: 0;
   bottom: -50%;
-  animation: aurora-border 19s ease-in-out infinite,
+  animation: aurora-border 6s ease-in-out infinite,
     aurora-4 24s ease-in-out infinite alternate;
 }
 
@@ -515,27 +413,27 @@ body {
 .thirteen h1:after {
    right:-20px;
 }
+.stVideo {
+    border-radius: 20px;
+}
 </style>
 ''',unsafe_allow_html=True)
 
 
+
 st.markdown('''
 <div class="content">
-  <div class="aurora">
+  <h1 class="title">Enlaces
+    <div class="aurora">
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
-  </div>
+    </div>
+  </h1>
+
 </div>
 ''',unsafe_allow_html=True)
 
 
-
-
-st_lottie("https://lottie.host/4f56c993-fd92-42e4-9945-c5df0387f986/mTRLkrdQVJ.json",quality="high",key='knot')
-
-
-
-
-
+sac.divider(label='', icon='link-45deg', align='center',key='div')

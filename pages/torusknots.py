@@ -98,7 +98,8 @@ if men == 'Pagina Principal':
     switch_page('Main')
 
 
-
+if men == 'Enlaces':
+    switch_page('links')
 
 
 
