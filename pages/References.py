@@ -81,7 +81,7 @@ with st.sidebar:
 
     ]),
 
-], format_func='title', open_all=True,index=7)
+], format_func='title', open_all=True,index=11)
 
 
 if men == 'Topología':
@@ -102,8 +102,8 @@ if men == 'Nudos Toroidales':
     switch_page('torusknots')
 
 
-if men == 'Referencias':
-    switch_page('References')
+if men == 'Enlaces':
+    switch_page('links')
 
 
 st.markdown(r'''
@@ -424,7 +424,7 @@ body {
 
 st.markdown('''
 <div class="content">
-  <h1 class="title">Enlaces
+  <h1 class="title">Referencias
     <div class="aurora">
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
@@ -437,4 +437,38 @@ st.markdown('''
 ''',unsafe_allow_html=True)
 
 
-sac.divider(label='', icon='link-45deg', align='center',key='div')
+sac.divider(label='', icon='postcard-heart', align='center',key='div')
+
+
+
+'''
+1. Adams, C. C. (1994). "The Knot Book: An Elementary Introduction to the Mathematical Theory of Knots." American Mathematical Society.
+
+2. Rolfsen, D. (1976). "Knots and Links." Mathematics Lecture Series, Publish or Perish.
+
+3. Kauffman, L. H. (1987). "On Knots." Princeton University Press.
+
+4. Burde, G., & Zieschang, H. (2003). "Knots." De Gruyter Studies in Mathematics, Walter de Gruyter.
+
+5. Lickorish, W. B. R. (1997). "An Introduction to Knot Theory." Graduate Texts in Mathematics, Springer.
+
+6. Adams, C. C. (2004). "The Knot Book: An Elementary Introduction to the Mathematical Theory of Knots." American Mathematical Society.
+
+7. Livingston, C. (1996). "Knot Theory." Mathematical Association of America.
+
+8. Rolfsen, D. (1980). "Nudos y superficies." Publicacions de la Universitat de València.
+
+9. González-Acuña, F. (1998). "Introducción a la teoría de nudos." Universidad de Chile.
+
+10. Cisneros-Molina, J. L. (2008). "Knot Theory and its Application." World Scientific Publishing.
+
+11. Torres-Gomez, L. (2009). "Introducción a la teoría de nudos y a las variedades 3-dimensionales." Universidad de los Andes.
+
+12. Montesinos, J. M. (1990). "Introducción a la teoría de nudos." Revista de la Real Academia de Ciencias Exactas, Físicas y Naturales. Serie A. Matemáticas, 84(3), 363-383.
+
+13. Ortiz-Bobadilla, L. (2004). "Introducción a la teoría de nudos." Universidad Nacional Autónoma de México.
+
+
+'''
+
+sac.divider(label='', icon='journal-bookmark-fill', align='center',key='div1')

@@ -91,6 +91,9 @@ if men == 'Nudos Toroidales':
 if men == 'Enlaces':
     switch_page('links')
 
+if men == 'Referencias':
+    switch_page('References')
+
 page_bg_img = '''
 <style>
 .centered {

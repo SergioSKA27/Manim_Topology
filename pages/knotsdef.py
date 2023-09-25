@@ -96,6 +96,10 @@ if men == 'Nudos Toroidales':
 if men == 'Enlaces':
     switch_page('links')
 
+if men == 'Referencias':
+    switch_page('References')
+
+
 st.markdown(r'''
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
