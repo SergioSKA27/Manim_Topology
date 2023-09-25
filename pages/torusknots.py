@@ -409,4 +409,4 @@ con centro en el punto $(2, 0, 0)$, alrededor del eje $z$. Esta rotación nos pr
 '''
 
 with cols1[1]:
-    st.video('/Videos/PAGINA3/Torus3d.mp4')
+    st.video('Videos/PAGINA3/Torus3d.mp4')
