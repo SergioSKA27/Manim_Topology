@@ -6,6 +6,9 @@ import copy
 import pandas as pd
 from threading  import Thread
 import streamlit_antd_components as sac
+from streamlit_extras.switch_page_button import switch_page
+
+
 
 st.set_page_config(
     page_title='Nudos y Enlaces',
@@ -19,6 +22,85 @@ st.set_page_config(
 ©Todos los derechos reservados 2023."""
     }
 )
+
+
+
+
+st.markdown('''
+<style>
+.css-79elbk {
+  position: unset;
+  display: none;
+}
+
+.css-j463ke {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 2.875rem;
+  background: rgba(255, 231, 231, 0);
+  outline: none;
+  z-index: 999990;
+  display: block;
+}
+</style>
+''',unsafe_allow_html=True)
+
+
+with st.sidebar:
+  men = sac.menu([
+
+    sac.MenuItem('Pagina Principal', icon='house',),
+
+    sac.MenuItem('Topología', icon='egg-fried'),
+
+    sac.MenuItem('Nudos y Enlaces', icon='command', tag=sac.Tag('Inicio',color='',bordered=False), children=[
+        sac.MenuItem('Historia', icon='bank'),
+        sac.MenuItem('Nudos', icon='flower1', children=[
+
+            sac.MenuItem('Definiciones', icon='gear-wide-connected'),
+
+            sac.MenuItem('Nudos Toroidales', icon='life-preserver'),
+            ],
+            ),
+        sac.MenuItem('Enlaces', icon='link'),
+        sac.MenuItem('Problemas', icon='puzzle'),
+    ]),
+
+    sac.MenuItem('Invariantes', icon='infinity'),
+
+    sac.MenuItem('Trenzas', icon='bezier2'),
+
+    sac.MenuItem(type='divider'),
+
+    sac.MenuItem('Acerca de', type='group',icon='info-circle', children=[
+        sac.MenuItem('Referencias', icon='card-heading'),
+        sac.MenuItem('Github', icon='github', href='https://github.com/SergioSKA27'),
+        sac.MenuItem('Streamlit', icon='cpu', href='https://streamlit.io/'),
+
+    ]),
+
+], format_func='title', open_all=True,index=6)
+
+
+if men == 'Topología':
+    switch_page('topospaces')
+
+if men == 'Historia':
+    switch_page('history')
+
+if men == 'Definiciones':
+    switch_page('knotsdef')
+
+
+if men == 'Pagina Principal':
+    switch_page('Main')
+
+
+
+
+
 
 
 st.markdown(r'''
@@ -352,7 +434,7 @@ st.markdown('''
 ''',unsafe_allow_html=True)
 
 
-sac.divider(label='', icon='egg-fried', align='center',key='div')
+sac.divider(label='', icon='life-preserver', align='center',key='div')
 
 '''
 A continuación, definiremos un conjunto de nudos que comparten ciertas propiedades destacadas.
@@ -365,7 +447,7 @@ El toro, denotado como $T$, de manera intuitiva, es el espacio definido por la s
 A continuación, presentaremos tres descripciones diferentes del toro, cada una de las cuales nos proporciona diferentes formas de construir nudos toroidales.
 
 '''
-sac.divider(label='', icon='egg-fried', align='center',key='div1')
+sac.divider(label='', icon='life-preserver', align='center',key='div1')
 cols = st.columns([.5,.5])
 
 with cols[0]:
@@ -392,7 +474,7 @@ $$
 '''
     st.video('Videos/PAGINA3/Torus_cociente.mp4')
 
-sac.divider(label='', icon='egg-fried', align='center',key='div2')
+sac.divider(label='', icon='life-preserver', align='center',key='div2')
 
 cols1 = st.columns([.5,.5])
 

@@ -17,44 +17,76 @@ st.set_page_config(
 ©Todos los derechos reservados 2023."""
     }
 )
+st.markdown('''
+<style>
+.css-79elbk {
+  position: unset;
+  display: none;
+}
+
+.css-j463ke {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 2.875rem;
+  background: rgba(255, 231, 231, 0);
+  outline: none;
+  z-index: 999990;
+  display: block;
+}
+</style>
+''',unsafe_allow_html=True)
 
 
-with st.sidebar.empty():
-  sac.menu([
+with st.sidebar:
+  men = sac.menu([
 
-    sac.MenuItem('Inicio', icon='house', tag=sac.Tag('Tag',color='green',bordered=False)),
+    sac.MenuItem('Pagina Principal', icon='house',),
 
-    sac.MenuItem('Nudos y Enlaces', icon='command', children=[
+    sac.MenuItem('Topología', icon='egg-fried'),
 
-        sac.MenuItem('store', icon='bag-check', tag='Tag0'),
+    sac.MenuItem('Nudos y Enlaces', icon='command', tag=sac.Tag('Inicio',color='',bordered=False), children=[
+        sac.MenuItem('Historia', icon='bank'),
+        sac.MenuItem('Nudos', icon='flower1', children=[
 
-        sac.MenuItem('brand', icon='award', children=[
+            sac.MenuItem('Definiciones', icon='gear-wide-connected'),
 
-            sac.MenuItem('github', icon='github'),
-
-            sac.MenuItem('apple', icon='apple'),
-
-        ]),
-
+            sac.MenuItem('Nudos Toroidales', icon='life-preserver'),
+            ],
+            ),
+        sac.MenuItem('Enlaces', icon='link'),
+        sac.MenuItem('Problemas', icon='puzzle'),
     ]),
 
-    sac.MenuItem('multipleline' * 5, icon='twitter'),
+    sac.MenuItem('Invariantes', icon='infinity'),
 
-    sac.MenuItem('disabled', icon='send', disabled=True),
+    sac.MenuItem('Trenzas', icon='bezier2'),
 
     sac.MenuItem(type='divider'),
 
-    sac.MenuItem('reference', type='group', children=[
-
-        sac.MenuItem('antd-menu', icon='heart', href='https://ant.design/components/menu#menu'),
-
-        sac.MenuItem('bootstrap-icon', icon='bootstrap', href='https://icons.getbootstrap.com/'),
+    sac.MenuItem('Acerca de', type='group',icon='info-circle', children=[
+        sac.MenuItem('Referencias', icon='card-heading'),
+        sac.MenuItem('Github', icon='github', href='https://github.com/SergioSKA27'),
+        sac.MenuItem('Streamlit', icon='cpu', href='https://streamlit.io/'),
 
     ]),
 
 ], format_func='title', open_all=True)
 
 
+if men == 'Topología':
+    switch_page('topospaces')
+
+if men == 'Historia':
+    switch_page('history')
+
+if men == 'Definiciones':
+    switch_page('knotsdef')
+
+
+if men == 'Nudos Toroidales':
+    switch_page('torusknots')
 
 
 
