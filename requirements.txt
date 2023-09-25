@@ -12,3 +12,4 @@ streamlit-lottie==0.0.5
 stmol==0.0.9
 ipython-genutils==0.2.0
 streamlit-antd-components==0.2.1
+st-click-detector==0.1.3
