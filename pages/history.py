@@ -568,8 +568,4 @@ dataa = pdb_dict[mole]
 st.info(dataa)
 
 
-cols5 = st.columns(5)
 
-with cols5[-1]:
-    if st.button('Siguiente'):
-        switch_page("topospaces")

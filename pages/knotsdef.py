@@ -636,7 +636,7 @@ $$
 '''
 
 with cols6[1]:
-    '''
+    r'''
     Por lo tanto, hemos demostrado que existe un homeomorfismo $h : \mathbb{R}^3 \rightarrow \mathbb{R}^3$ (que es la composición de $h$ y $R$) que preserva la orientación y que lleva a $K$ en su imagen especular $K'$, lo que demuestra la afirmación "si" del lema.
 
 La demostración en la dirección opuesta (la afirmación "solo si") es análoga y se basa en el hecho de que si un nudo es equivalente a su imagen especular, entonces existe un homeomorfismo que invierte la orientación que lleva al nudo en sí mismo.
@@ -694,5 +694,7 @@ with cols8[1]:
     st.image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj7gCoAFljQ83iCT1jO1TwNvGJ_694s6qhQL-o97It3rgmMxFHn6Vg1WlZRCTMyO6a0Jc&usqp=CAU','Nudo Salvaje 2.')
 
 sac.divider(label='', icon='balloon-heart', align='center',key='div9')
+
+
 
 

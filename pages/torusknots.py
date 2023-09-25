@@ -492,3 +492,201 @@ con centro en el punto $(2, 0, 0)$, alrededor del eje $z$. Esta rotación nos pr
 
 with cols1[1]:
     st.video('Videos/PAGINA3/Torus3d.mp4')
+
+
+sac.divider(label='', icon='life-preserver', align='center',key='div3')
+
+cols2 = st.columns([.5,.5])
+
+with cols2[0]:
+    st.header('Nudo Tórico')
+    st.divider()
+    r'''
+**Definición:** Un nudo que reside en la superficie de un toro se denomina nudo tórico y puede ser expresado de diversas maneras. La forma más sencilla de construir los nudos tóricos es mediante la función $f$, que proporciona el homeomorfismo entre $S^1 \times S^1$ y la superficie de la dona. Sean $m$ y $n$ un par de enteros primos entre sí. Definimos $K_{m,n}$ como el siguiente subconjunto del toro en $\mathbb{R}^3$:
+
+$$
+K_{m,n} = \{ f(\exp(2\pi i m t), \exp(2\pi i n t)) \, | \, t \in I \}.
+$$
+
+No es difícil comprobar que la aplicación $g: S^1 \rightarrow K_{m,n}$ definida por
+
+$$
+g(\exp(2\pi i t)) = f(\exp(2\pi i m t), \exp(2\pi i n t))
+$$
+
+es un homeomorfismo y, por lo tanto, $K_{m,n}$ es un nudo. A $K_{m,n}$ se le llama nudo tórico de tipo $(m, n)$.
+
+
+'''
+
+with cols2[1]:
+    tabs = st.tabs([r'Nudos Toroidales $\mathbb{R}^2$',r'Nudos Toroidales $\mathbb{R}^3$'])
+    with tabs[0]:
+        st.video('Videos/PAGINA3/NudosToro2d.mp4')
+    with tabs[1]:
+        st.video('Videos/PAGINA3/NudosToro3d.mp4')
+
+
+
+
+
+sac.divider(label='', icon='life-preserver', align='center',key='div4')
+
+cols3 = st.columns([.5,.5])
+
+with cols3[0]:
+    st.header('¿Como Construir Nudos Tóricos?')
+    st.divider()
+    r'''
+En el toro, existen dos circunferencias estándar: la primera está dada por $f(\exp(2\pi i t), 1)$, llamada meridiano, y la segunda por $f(1, \exp(2\pi i t))$, llamada longitud. Un nudo tórico de tipo $(m, n)$ da $n$ vueltas alrededor del meridiano y $m$ vueltas alrededor de la longitud.
+
+Además, si consideramos el toro $T$ como el espacio cociente $X/\sim$ descrito en (b), entonces $K_{m,n}$ es la imagen en $T$ del segmento rectilíneo en $\mathbb{R}^2$ que pasa por el origen y tiene una pendiente $n/m$.
+
+Esta definición describe los nudos tóricos y cómo se construyen utilizando el toro y las funciones $f$ y $g$, así como su relación con las circunferencias estándar del toro.'''
+
+with cols3[1]:
+    tabs1 = st.tabs([r'Nudos Sobre el Toro',r'Toro $\to$ Nudo'])
+    with tabs1[0]:
+        st.video('Videos/PAGINA3/NudoToro1.mp4')
+    with tabs1[1]:
+        st.video('Videos/PAGINA3/TorotoKnot.mp4')
+
+
+
+sac.divider(label='', icon='life-preserver', align='center',key='div5')
+
+cols4 = st.columns([.5,.5])
+
+with cols4[0]:
+    st.header('Tercera Forma de Construir Nudos Tóricos')
+    st.divider()
+    r'''
+Una tercera manera de construir los nudos tóricos es la siguiente. Consideremos un cilindro de altura 1 con la base siendo el círculo unitario en el plano $xy$. Marcamos $r$ puntos $A_0, A_1, \ldots, A_{r-1}$ en la base $C_1$ y $r$ puntos $B_0, B_1, \ldots, B_{r-1}$ en la tapa superior $C_2$ con las siguientes coordenadas (ver Figura 2.10):
+
+$$
+A_0 = (1, 0, 0), A_1 = \left(\cos\left(\frac{2\pi}{r}\right), \sin\left(\frac{2\pi}{r}\right), 0\right), \ldots, A_{r-1} = \left(\cos\left(\frac{2(r-1)\pi}{r}\right), \sin\left(\frac{2(r-1)\pi}{r}\right), 0\right)
+$$
+
+$$
+B_0 = (1, 0, 1), B_1 = \left(\cos\left(\frac{2\pi}{r}\right), \sin\left(\frac{2\pi}{r}\right), 1\right), \ldots, B_{r-1} = \left(\cos\left(\frac{2(r-1)\pi}{r}\right), \sin\left(\frac{2(r-1)\pi}{r}\right), 1\right)
+$$
+
+A continuación, conectamos los puntos $A_k$ y $B_k$ (para $k = 0, 1, \ldots, r-1$) en el cilindro mediante segmentos $\alpha_k$. Manteniendo la base $C_1$ fija, torcemos el cilindro rotando la tapa $C_2$ alrededor del eje $z$ por un ángulo de $\frac{2\pi q}{r}$, donde $q$ es un entero que puede ser positivo o negativo, y $r$ y $q$ son primos relativos.
+
+Finalmente, identificamos los puntos $(x, y, 0)$ en $C_1$ con los puntos $(x, y, 1)$ en $C_2$, lo que nos permite obtener un toro con $r$ segmentos $\alpha_0, \alpha_1, \ldots, \alpha_{r-1}$ que se han unido formando el nudo $K_{q,r}$.
+'''
+
+with cols4[1]:
+    ''''''
+
+
+
+sac.divider(label='', icon='life-preserver', align='center',key='div6')
+
+cols5 = st.columns([.5,.5])
+
+with cols5[0]:
+    st.divider()
+    r'''
+
+**Proposición:** Sean $q$ y $r$ dos enteros primos relativos, donde $r \neq 0$. Entonces:
+
+1. Si $q = 0$, $q = \pm 1$, o $r = \pm 1$, entonces $K(q, r)$ es el nudo trivial.
+2. Si $q$ y $r$ son enteros distintos de $0$ y $q$ no es igual a $\pm 1$, entonces $K(-q, r)$ es la imagen especular de $K(q, r)$.
+
+La esfera de dimensión 3, denotada por $S^3$, se puede concebir como $\mathbb{R}^3$ con un punto $\infty$ agregado al infinito. A veces, es beneficioso considerar los nudos inmersos en $S^3$ en lugar de en $\mathbb{R}^3$. Los ajustes necesarios en las definiciones de nudo y equivalencia de nudos consisten únicamente en reemplazar $\mathbb{R}^3$ por $S^3$.
+'''
+
+with cols5[1]:
+    st.divider()
+    '''
+    **Proposición:** La esfera tridimensional $S^3$ puede ser construida identificando las superficies de dos toros sólidos $T_1$ y $T_2$ de tal manera que el meridiano y la longitud de $T_1$ se identifican con la longitud y el meridiano de $T_2$, respectivamente.
+    '''
+
+
+
+sac.divider(label='', icon='life-preserver', align='center',key='div7')
+
+cols6 = st.columns([.5,.5])
+
+with cols6[0]:
+    st.header('Clasificación de Nudos Tóricos')
+    st.divider()
+    r'''
+Usando la proposición anterior, podemos demostrar de inmediato el siguiente teorema:
+
+**Teorema:** $K(q, r) \cong K(r, q)$.
+
+Los nudos tóricos están completamente clasificados.La esfera de dimensión 3, denotada por $S^3$, se puede concebir como $\mathbb{R}^3$ con un punto $\infty$ agregado al infinito. A veces, es beneficioso considerar los nudos inmersos en $S^3$ en lugar de en $\mathbb{R}^3$. Los ajustes necesarios en las definiciones de nudo y equivalencia de nudos consisten únicamente en reemplazar $\mathbb{R}^3$ por $S^3$.
+'''
+    with st.expander('Demostración'):
+        r'''
+        La demostración del Teorema, que establece $K(q, r) \cong K(r, q)$, se basa en la propiedad de simetría de los nudos tóricos. Para demostrarlo, primero consideremos la construcción de los nudos tóricos.
+
+Recordemos que un nudo tórico $K(q, r)$ se construye identificando puntos en un toro sólido $T_1$ de manera que el meridiano y la longitud de $T_1$ se identifican con la longitud y el meridiano de otro toro sólido $T_2$, respectivamente. Esta construcción es esencialmente simétrica y no depende del orden en que identifiquemos los meridianos y las longitudes de los dos toros.
+
+Ahora, para demostrar $K(q, r) \sim K(r, q)$, podemos considerar la construcción de $K(r, q)$. Siguiendo el mismo razonamiento, identificamos puntos en un toro sólido $T_2$ de manera que el meridiano y la longitud de $T_2$ se identifican con la longitud y el meridiano de otro toro sólido $T_1$, respectivamente. Como mencionamos antes, esta construcción es simétrica y no depende del orden en que identifiquemos los meridianos y las longitudes de los dos toros.
+
+Dado que las construcciones de $K(q, r)$ y $K(r, q)$ son esencialmente las mismas y no dependen del orden, podemos concluir que $K(q, r)$ y $K(r, q)$ son equivalentes, es decir, $K(q, r) \sim K(r, q)$. Esto completa la demostración del teorema.
+
+La clave de esta demostración radica en la simetría inherente de la construcción de nudos tóricos, lo que garantiza que los nudos $K(q, r)$ y $K(r, q)$ sean equivalentes.
+        '''
+
+with cols6[1]:
+    '''
+    '''
+
+
+
+
+sac.divider(label='', icon='life-preserver', align='center',key='div8')
+
+cols7 = st.columns([.5,.5])
+
+with cols7[0]:
+    st.header('Clasificación de Nudos Tóricos')
+    st.divider()
+    r'''
+**Teorema:**
+
+1. Si $q$ o $r$ es igual a $0$ o $\pm 1$, entonces $K(q, r)$ es el nudo trivial.
+
+2. Supongamos que $q$, $r$, $p$, $s$ no son iguales a $0$ o $\pm 1$. Entonces:
+
+$$
+K(q, r) \cong K(p, s) \iff \{q, r\} = \{p, s\} \text{ o } \{q, r\} = \{-p, -s\}.
+$$
+
+Esto implica que existe una infinidad de nudos distintos.'''
+
+
+with cols7[1]:
+    '''
+    '''
+
+
+
+
+sac.divider(label='', icon='life-preserver', align='center',key='div9')
+
+cols8 = st.columns([.5,.5])
+
+with cols8[0]:
+    st.header('Suma Conexa de Nudos')
+    st.divider()
+    r'''
+A continuación, describiremos una operación relacionada con los nudos. Dados dos nudos orientados, $K_1$ y $K_2$, definimos su **suma conexa**, denotada como $K_1 \# K_2$, como el nudo que se obtiene al eliminar un intervalo en cada uno de los nudos y luego pegar los extremos de estos intervalos de manera que las orientaciones coincidan, como se muestra en la Figura 2.12. Un nudo se considera **primo** si no se puede expresar como la suma conexa de dos nudos no triviales, es decir, si no puede escribirse como $K_1 \# K_2$ con $K_1$ y $K_2$ ambos siendo nudos no triviales.
+
+La suma conexa cumple las siguientes propiedades:
+
+(a) Está bien definida hasta la equivalencia. Esto significa que si $K_1 \cong K'_1$ y $K_2 \cong K'_2$, entonces $K_1 \# K_2 \cong K'_1 \# K'_2$.
+
+(b) Es una operación asociativa, lo que significa que $K_1 \# (K_2 \# K_3) \cong (K_1 \# K_2) \# K_3$.
+
+(c) Es conmutativa, lo que implica que $K_1 \# K_2 \cong K_2 \# K_1$.
+
+'''
+
+
+with cols8[1]:
+    st.video('Videos/PAGINA3/sumaconexa.mp4')
