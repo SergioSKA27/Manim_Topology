@@ -429,7 +429,13 @@ homeomorfismo $\varphi : S^1 \to K$ entre la circunferencia $S^1$ y el conjunto 
 '''
 
 with cols2[1]:
-    ''''''
+    tabs2 = st.tabs(['Ejemplo 1','Ejemplo 2'])
+
+    with tabs2[0]:
+        st.video('Videos/PAGINA3/Knot.mp4')
+
+    with tabs2[1]:
+        st.video('Videos/PAGINA3/nudos1_3d.mp4')
 
 
 
@@ -453,7 +459,7 @@ En otras palabras, dos nudos son semejantes si pueden ser deformados continuamen
 '''
 
 with cols3[1]:
-    ''''''
+    st.video('Videos/PAGINA3/nudos_semejantes.mp4')
 
 
 
@@ -515,7 +521,7 @@ $\|x\| \geq k$.
 '''
 
 with cols5[1]:
-    ''''''
+    st.video('Videos/PAGINA3/nudos_eq.mp4')
 
 
 sac.divider(label='', icon='balloon-heart', align='center',key='div6')
@@ -553,15 +559,17 @@ $$
 h(R(K)) = R(h(K)) = R(K)
 $$
 
-Por lo tanto, hemos demostrado que existe un homeomorfismo $h : \mathbb{R}^3 \rightarrow \mathbb{R}^3$ (que es la composición de $h$ y $R$) que preserva la orientación y que lleva a $K$ en su imagen especular $K'$, lo que demuestra la afirmación "si" del lema.
+'''
+
+with cols6[1]:
+    '''
+    Por lo tanto, hemos demostrado que existe un homeomorfismo $h : \mathbb{R}^3 \rightarrow \mathbb{R}^3$ (que es la composición de $h$ y $R$) que preserva la orientación y que lleva a $K$ en su imagen especular $K'$, lo que demuestra la afirmación "si" del lema.
 
 La demostración en la dirección opuesta (la afirmación "solo si") es análoga y se basa en el hecho de que si un nudo es equivalente a su imagen especular, entonces existe un homeomorfismo que invierte la orientación que lleva al nudo en sí mismo.
 
 Por lo tanto, hemos demostrado que un nudo es anfiqueiral si y solo si existe un homeomorfismo que preserva la orientación que manda al nudo en su imagen especular, lo que completa la demostración del Lema.
-'''
-
-with cols6[1]:
-    ''''''
+    '''
+    st.video('Videos/PAGINA3/anfiqueiral.mp4')
 
 
 sac.divider(label='', icon='balloon-heart', align='center',key='div7')
@@ -587,7 +595,7 @@ invierte la orientación del propio nudo $K$.
 '''
 
 with cols7[1]:
-    ''''''
+    st.video('Videos/PAGINA3/Nudos_inver.mp4')
 
 sac.divider(label='', icon='balloon-heart', align='center',key='div8')
 
@@ -608,61 +616,9 @@ exclusivamente en el estudio de nudos dóciles.
 '''
 
 with cols8[1]:
-    ''''''
+    st.image('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Wild_knot.svg/575px-Wild_knot.svg.png','Nudo Salvaje 1.')
+    st.image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj7gCoAFljQ83iCT1jO1TwNvGJ_694s6qhQL-o97It3rgmMxFHn6Vg1WlZRCTMyO6a0Jc&usqp=CAU','Nudo Salvaje 2.')
 
 sac.divider(label='', icon='balloon-heart', align='center',key='div9')
 
-cols9 = st.columns([.5,.5])
 
-with cols9[0]:
-    st.header('Nudos Toroidales')
-    st.divider()
-    r'''
-
-A continuación, definiremos un conjunto de nudos que comparten ciertas propiedades destacadas.
-Estos nudos se conocen como nudos toroidales porque se construyen en una superficie conocida como toro.
-Los nudos toroidales no solo son interesantes por sí mismos, sino que también son importantes porque,
-en muchas ocasiones, ayudan a comprender propiedades generales de los nudos.
-
-El toro, denotado como $T$, de manera intuitiva, es el espacio definido por la superficie de una dona.
-
-A continuación, presentaremos tres descripciones diferentes del toro, cada una de las cuales nos proporciona diferentes formas de construir nudos toroidales.
-
-**(a) Como Espacio Producto:** Consideremos el círculo unitario en el plano complejo $\mathbb{C}$, es decir, el conjunto de puntos dado por:
-$$
-S^1 = \{ e^{i\theta} \mid 0 \leq \theta < 2\pi \}.
-$$
-Entonces, el toro es el espacio $S^1 \times S^1$.
-'''
-
-with cols9[1]:
-    r'''
-    **(b) Como Espacio Cociente:** Tomemos $X$ como el cuadrado unitario en $\mathbb{R}^2$, es decir:
-$$
-X = \{ (x, y) \mid 0 \leq x, y \leq 1 \}.
-$$
-Luego, el toro $T$ es el espacio cociente $X/\sim$, donde la relación de equivalencia se define de la siguiente manera:
-$$
-(0, y) \sim (1, y) \quad \text{y} \quad (x, 0) \sim (x, 1).
-$$
-'''
-
-sac.divider(label='', icon='balloon-heart', align='center',key='div10')
-
-cols10 = st.columns([.5,.5])
-
-with cols10[0]:
-    st.header('Definición Geométrica del Toro')
-    st.divider()
-    r'''
-El toro, considerado como un subespacio de $\mathbb{R}^3$, se define mediante la siguiente expresión:
-$$
-\{ (x, y, z) \in \mathbb{R}^3 \mid (\sqrt{x^2 + y^2} - 2)^2 + z^2 = 1 \}.
-$$
-Esta definición representa la superficie obtenida al rotar la circunferencia $(x - 2)^2 + z^2 = 1$ en el plano $xz$,
-con centro en el punto $(2, 0, 0)$, alrededor del eje $z$. Esta rotación nos proporciona la representación geométrica de una dona.
-'''
-
-with cols10[1]:
-    r'''
-    '''

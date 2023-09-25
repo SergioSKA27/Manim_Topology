@@ -1,14 +1,16 @@
 import streamlit as st
-from streamlit_lottie import st_lottie
-from streamlit_extras.switch_page_button import switch_page
+from itertools import combinations, permutations,chain
+from os import system
 import time
-from st_click_detector import click_detector
+import copy
+import pandas as pd
+from threading  import Thread
 import streamlit_antd_components as sac
-# Título de la aplicación
+
 st.set_page_config(
     page_title='Nudos y Enlaces',
     page_icon=':robot_face:',
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="collapsed",
     menu_items={
 
@@ -17,161 +19,6 @@ st.set_page_config(
 ©Todos los derechos reservados 2023."""
     }
 )
-
-
-with st.sidebar.empty():
-  sac.menu([
-
-    sac.MenuItem('Inicio', icon='house', tag=sac.Tag('Tag',color='green',bordered=False)),
-
-    sac.MenuItem('Nudos y Enlaces', icon='command', children=[
-
-        sac.MenuItem('store', icon='bag-check', tag='Tag0'),
-
-        sac.MenuItem('brand', icon='award', children=[
-
-            sac.MenuItem('github', icon='github'),
-
-            sac.MenuItem('apple', icon='apple'),
-
-        ]),
-
-    ]),
-
-    sac.MenuItem('multipleline' * 5, icon='twitter'),
-
-    sac.MenuItem('disabled', icon='send', disabled=True),
-
-    sac.MenuItem(type='divider'),
-
-    sac.MenuItem('reference', type='group', children=[
-
-        sac.MenuItem('antd-menu', icon='heart', href='https://ant.design/components/menu#menu'),
-
-        sac.MenuItem('bootstrap-icon', icon='bootstrap', href='https://icons.getbootstrap.com/'),
-
-    ]),
-
-], format_func='title', open_all=True)
-
-
-
-
-
-page_bg_img = '''
-<style>
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 5;
-  font-size: 100px;
-}
-.centered-text {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0);
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            z-index: 5;
-        }
-header {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-}
-
-header h1 {
-  font-size: 100px;
-  min-width: 50%;
-  max-width: 100%;
-  font-weight: 500;
-  color: #1D1A1A;
-  border-right: 4px solid #000;
-  animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: "Inter";
-  overflow: hidden;
-  text-shadow:
-    1px 1px 1px blue,
-    2px 2px 1px blue;
-}
-@keyframes cursor{
-  0%, 100%{border-color: transparent;}
-  50%{border-color: #000;}
-}
-
-@keyframes typing{
-  0%{ width: 0ch} /*Text is hidden*/
-  30%{ width: 16ch;} /*The enitre header will be typed out*/
-  80%{ width: 16ch;} /*Text stays visible*/
-  90%{ width: 0ch;} /*Text is deleted*/
-  100%{ width: 0ch;} /*Text stays hidden*/
-}
-
-/* For Mobile Portrait View */
-@media screen and (max-device-width: 480px)
-    and (orientation: portrait) {
-    header h1 {
-  font-size: 40px;
-  min-width: 50%;
-  max-width: 100%;
-  font-weight: 500;
-  color: #1D1A1A;
-  border-right: 4px solid #000;
-  animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: "Inter";
-  overflow: hidden;
-  text-shadow:
-    1px 1px 1px blue,
-    2px 2px 1px blue;
-   }
-}
-/* For Mobile Landscape View */
-@media screen and (max-device-width: 640px)
-    and (orientation: landscape) {
-    header h1 {
-   font-size: 40px;
-  min-width: 50%;
-  max-width: 100%;
-  font-weight: 500;
-  color: #1D1A1A;
-  border-right: 4px solid #000;
-  animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: "Inter";
-  overflow: hidden;
-  text-shadow:
-    1px 1px 1px blue,
-    2px 2px 1px blue;
-   }
-}
-
-</style>
-
-
-<div class="centered-text">
-   <header>
-        <h1>Nudos y Enlaces</h1>
-    </header>
-</div>
-'''
-
-st.markdown(page_bg_img, unsafe_allow_html=True)
-
-
 
 
 st.markdown(r'''
@@ -224,13 +71,13 @@ body {
 }
 
 .aurora {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 2;
-  mix-blend-mode: difference;
+  mix-blend-mode: darken;
   pointer-events: none;
 }
 
@@ -247,7 +94,7 @@ body {
 
 .aurora__item:nth-of-type(1) {
   top: -50%;
-  animation: aurora-border 20s ease-in-out infinite,
+  animation: aurora-border 6s ease-in-out infinite,
     aurora-1 12s ease-in-out infinite alternate;
 }
 
@@ -255,7 +102,7 @@ body {
   background-color: var(--clr-3);
   right: 0;
   top: 0;
-  animation: aurora-border 20s ease-in-out infinite,
+  animation: aurora-border 6s ease-in-out infinite,
     aurora-2 12s ease-in-out infinite alternate;
 }
 
@@ -263,7 +110,7 @@ body {
   background-color: var(--clr-2);
   left: 0;
   bottom: 0;
-  animation: aurora-border 20s ease-in-out infinite,
+  animation: aurora-border 6s ease-in-out infinite,
     aurora-3 8s ease-in-out infinite alternate;
 }
 
@@ -271,7 +118,7 @@ body {
   background-color: var(--clr-4);
   right: 0;
   bottom: -50%;
-  animation: aurora-border 19s ease-in-out infinite,
+  animation: aurora-border 6s ease-in-out infinite,
     aurora-4 24s ease-in-out infinite alternate;
 }
 
@@ -482,27 +329,84 @@ body {
 .thirteen h1:after {
    right:-20px;
 }
+.stVideo {
+    border-radius: 20px;
+}
 </style>
 ''',unsafe_allow_html=True)
 
 
+
 st.markdown('''
 <div class="content">
-  <div class="aurora">
+  <h1 class="title">Nudos Toroidales
+    <div class="aurora">
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
-  </div>
+    </div>
+  </h1>
+
 </div>
 ''',unsafe_allow_html=True)
 
 
+sac.divider(label='', icon='egg-fried', align='center',key='div')
 
+'''
+A continuación, definiremos un conjunto de nudos que comparten ciertas propiedades destacadas.
+Estos nudos se conocen como nudos toroidales porque se construyen en una superficie conocida como toro.
+Los nudos toroidales no solo son interesantes por sí mismos, sino que también son importantes porque,
+en muchas ocasiones, ayudan a comprender propiedades generales de los nudos.
 
-st_lottie("https://lottie.host/4f56c993-fd92-42e4-9945-c5df0387f986/mTRLkrdQVJ.json",quality="high",key='knot')
+El toro, denotado como $T$, de manera intuitiva, es el espacio definido por la superficie de una dona.
 
+A continuación, presentaremos tres descripciones diferentes del toro, cada una de las cuales nos proporciona diferentes formas de construir nudos toroidales.
 
+'''
+sac.divider(label='', icon='egg-fried', align='center',key='div1')
+cols = st.columns([.5,.5])
 
+with cols[0]:
+    st.header('Definiciones del Toro')
+    st.divider()
+    r'''
+**(a) Como Espacio Producto:** Consideremos el círculo unitario en el plano complejo $\mathbb{C}$, es decir, el conjunto de puntos dado por:
+$$
+S^1 = \{ e^{i\theta} \mid 0 \leq \theta < 2\pi \}.
+$$
+Entonces, el toro es el espacio $S^1 \times S^1$.
+'''
 
+with cols[1]:
+    r'''
+    **(b) Como Espacio Cociente:** Tomemos $X$ como el cuadrado unitario en $\mathbb{R}^2$, es decir:
+$$
+X = \{ (x, y) \mid 0 \leq x, y \leq 1 \}.
+$$
+Luego, el toro $T$ es el espacio cociente $X/\sim$, donde la relación de equivalencia se define de la siguiente manera:
+$$
+(0, y) \sim (1, y) \quad \text{y} \quad (x, 0) \sim (x, 1).
+$$
+'''
+    st.video('Videos/PAGINA3/Torus_cociente.mp4')
 
+sac.divider(label='', icon='egg-fried', align='center',key='div2')
+
+cols1 = st.columns([.5,.5])
+
+with cols1[0]:
+    st.header('Definición Geométrica del Toro')
+    st.divider()
+    r'''
+El toro, considerado como un subespacio de $\mathbb{R}^3$, se define mediante la siguiente expresión:
+$$
+\{ (x, y, z) \in \mathbb{R}^3 \mid (\sqrt{x^2 + y^2} - 2)^2 + z^2 = 1 \}.
+$$
+Esta definición representa la superficie obtenida al rotar la circunferencia $(x - 2)^2 + z^2 = 1$ en el plano $xz$,
+con centro en el punto $(2, 0, 0)$, alrededor del eje $z$. Esta rotación nos proporciona la representación geométrica de una dona.
+'''
+
+with cols1[1]:
+    st.video('/Videos/PAGINA3/Torus3d.mp4')
