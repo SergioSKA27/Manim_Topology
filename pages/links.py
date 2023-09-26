@@ -102,6 +102,9 @@ if men == 'Pagina Principal':
 if men == 'Nudos Toroidales':
     switch_page('torusknots')
 
+if men == 'Problemas':
+    switch_page('Problems')
+
 
 if men == 'Referencias':
     switch_page('References')
@@ -458,7 +461,7 @@ Al igual que con los nudos, tenemos una definición de cuando dos enlaces son eq
 
 2. Existe un homeomorfismo de $\mathbb{R}^3$ en sí mismo que preserva la orientación que manda la colección $K_1 \cup \ldots \cup K_m$ en la colección $K'_1 \cup \ldots \cup K'_n$.
 
-En la Figura se muestran algunos ejemplos de enlaces. Si en la construcción (iii) de nudos tóricos dada en la página 16 no pedimos que $r$ y $q$ sean primos relativos, entonces obtendremos un enlace cuyo número de componentes es el máximo común divisor de $r$ y $q$. Estos enlaces son conocidos como enlaces tóricos.
+En la Figura se muestran algunos ejemplos de enlaces. Si en la construcción (iii) de nudos tóricos dada en la página anterior no pedimos que $r$ y $q$ sean primos relativos, entonces obtendremos un enlace cuyo número de componentes es el máximo común divisor de $r$ y $q$. Estos enlaces son conocidos como enlaces tóricos.
 '''
 
 

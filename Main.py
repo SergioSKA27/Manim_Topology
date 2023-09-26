@@ -85,15 +85,19 @@ if men == 'Historia':
 if men == 'Definiciones':
     switch_page('knotsdef')
 
-
 if men == 'Nudos Toroidales':
     switch_page('torusknots')
 
 if men == 'Enlaces':
     switch_page('links')
 
+if men == 'Problemas':
+    switch_page('Problems')
+
 if men == 'Referencias':
     switch_page('References')
+
+
 
 page_bg_img = '''
 <style>

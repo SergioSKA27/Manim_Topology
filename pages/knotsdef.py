@@ -100,6 +100,9 @@ if men == 'Enlaces':
 if men == 'Referencias':
     switch_page('References')
 
+if men == 'Problemas':
+    switch_page('Problems')
+
 
 st.markdown(r'''
 <style>

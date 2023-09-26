@@ -99,6 +99,9 @@ if men == 'Nudos Toroidales':
 if men == 'Enlaces':
     switch_page('links')
 
+if men == 'Problemas':
+    switch_page('Problems')
+
 if men == 'Referencias':
     switch_page('References')
 

@@ -106,6 +106,10 @@ if men == 'Enlaces':
 if men == 'Referencias':
     switch_page('References')
 
+if men == 'Problemas':
+    switch_page('Problems')
+
+
 st.markdown(r'''
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");

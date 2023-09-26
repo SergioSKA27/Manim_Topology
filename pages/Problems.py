@@ -82,7 +82,7 @@ with st.sidebar:
 
     ]),
 
-], format_func='title', open_all=True,index=11)
+], format_func='title', open_all=True,index=8)
 
 
 if men == 'Topología':
@@ -94,20 +94,17 @@ if men == 'Historia':
 if men == 'Definiciones':
     switch_page('knotsdef')
 
-
 if men == 'Pagina Principal':
     switch_page('Main')
-
 
 if men == 'Nudos Toroidales':
     switch_page('torusknots')
 
+if men == 'Referencias':
+    switch_page('References')
 
 if men == 'Enlaces':
     switch_page('links')
-
-if men == 'Problemas':
-    switch_page('Problems')
 
 
 st.markdown(r'''
@@ -428,7 +425,7 @@ body {
 
 st.markdown('''
 <div class="content">
-  <h1 class="title">Referencias
+  <h1 class="title">Problemas Fundamentales
     <div class="aurora">
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
@@ -440,39 +437,143 @@ st.markdown('''
 </div>
 ''',unsafe_allow_html=True)
 
-
-sac.divider(label='', icon='postcard-heart', align='center',key='div')
-
-
-
+st.divider()
 '''
-1. Adams, C. C. (1994). "The Knot Book: An Elementary Introduction to the Mathematical Theory of Knots." American Mathematical Society.
-
-2. Rolfsen, D. (1976). "Knots and Links." Mathematics Lecture Series, Publish or Perish.
-
-3. Kauffman, L. H. (1987). "On Knots." Princeton University Press.
-
-4. Burde, G., & Zieschang, H. (2003). "Knots." De Gruyter Studies in Mathematics, Walter de Gruyter.
-
-5. Lickorish, W. B. R. (1997). "An Introduction to Knot Theory." Graduate Texts in Mathematics, Springer.
-
-6. Adams, C. C. (2004). "The Knot Book: An Elementary Introduction to the Mathematical Theory of Knots." American Mathematical Society.
-
-7. Livingston, C. (1996). "Knot Theory." Mathematical Association of America.
-
-8. Rolfsen, D. (1980). "Nudos y superficies." Publicacions de la Universitat de València.
-
-9. González-Acuña, F. (1998). "Introducción a la teoría de nudos." Universidad de Chile.
-
-10. Cisneros-Molina, J. L. (2008). "Knot Theory and its Application." World Scientific Publishing.
-
-11. Torres-Gomez, L. (2009). "Introducción a la teoría de nudos y a las variedades 3-dimensionales." Universidad de los Andes.
-
-12. Montesinos, J. M. (1990). "Introducción a la teoría de nudos." Revista de la Real Academia de Ciencias Exactas, Físicas y Naturales. Serie A. Matemáticas, 84(3), 363-383.
-
-13. Ortiz-Bobadilla, L. (2004). "Introducción a la teoría de nudos." Universidad Nacional Autónoma de México.
-
-
+Los problemas que surgen al estudiar la teoría de nudos pueden clasificarse principalmente en dos tipos: Problemas
+Globales y Problemas Locales. Los Problemas Globales se refieren a cómo se comporta el conjunto de todos los nudos,
+mientras que los Problemas Locales están relacionados con el comportamiento de un nudo específico. A continuación,
+proporcionaremos ejemplos de ambos tipos de problemas y mencionaremos algunos resultados obtenidos hasta ahora.
 '''
 
-sac.divider(label='', icon='journal-bookmark-fill', align='center',key='div1')
+sac.divider(label='', icon='link-45deg', align='center',key='div')
+
+st.title('Problemas Globales')
+cols = st.columns([.5,.5])
+
+with cols[0]:
+    st.header('Problema de clasificación')
+    st.divider()
+    r'''
+El problema de clasificación implica la creación de una tabla completa de nudos (o enlaces), lo que significa una tabla
+en la que no existan dos nudos equivalentes y en la que cualquier nudo (o enlace) arbitrario sea equivalente a alguno de
+los nudos en la tabla. Este problema es altamente complicado y está lejos de resolverse por completo. Un subproblema que
+podría resultar más manejable es la clasificación de un tipo específico de nudos, como en el caso de los nudos tóricos.
+'''
+    st.image('https://d3i71xaburhd42.cloudfront.net/5bd18e843e5df84c12e926702b1e2c8f8bf90d36/4-Figure2-1.png')
+
+with cols[1]:
+    st.header('Invariantes de nudos')
+    st.divider()
+    r'''
+    Una forma de determinar si dos nudos son equivalentes o no es encontrar alguna propiedad de los nudos que no cambie
+cuando se deforman y que sirva para distinguir nudos que no son equivalentes. A estas propiedades se les llama invariantes de nudos.
+
+Supongamos que a cada nudo $ K $ se le asigna una cantidad (o un objeto matemático, como un número, un grupo, etc.) $ \rho(K) $.
+Si para dos nudos equivalentes, las cantidades asignadas son siempre las mismas, entonces $ \rho $ es un invariante de nudos.
+
+En general, un invariante de nudos es unidireccional, es decir,
+
+$$
+\text{Si dos nudos son equivalentes} \implies \text{Sus invariantes son iguales}.
+$$
+
+En muchos casos, el recíproco no es cierto. Equivalentemente, si el invariante de dos nudos es diferente, entonces los
+nudos no pueden ser equivalentes. Por lo tanto, los invariantes de nudos nos proporcionan un método efectivo para
+distinguir nudos que no son equivalentes.
+
+En el próximo capítulo, se definirán algunos de los invariantes clásicos de nudos.
+    '''
+
+
+
+
+sac.divider(label='', icon='link-45deg', align='center',key='div1')
+
+cols1 = st.columns([.5,.5])
+
+with cols1[0]:
+    st.header('Una conjetura fundamental')
+    st.divider()
+    r'''
+Existe un teorema fundamental en el cual se basa la definición de algunos invariantes de nudos, como por ejemplo, el grupo de un nudo,
+que definiremos en la siguiente sección.
+
+**Teorema 3.1:** Si dos nudos $ K_1 $ y $ K_2 $ en $ S^3 $ son equivalentes, entonces sus complementos $ S^3 \setminus K_1 $ y $ S^3 \setminus K_2 $ son homeomorfos.
+
+La conjetura fundamental es el recíproco del Teorema 3.1.
+
+**Conjetura 3.2:** Sean $ K_1 $ y $ K_2 $ dos nudos. Si sus complementos $ S^3 \setminus K_1 $ y $ S^3 \setminus K_2 $ son homeomorfos, entonces los nudos son equivalentes.
+
+A finales de los años 80, esta conjetura fue demostrada por C. McA Gordon y J. Luecke [2]. Como consecuencia de este resultado, el problema de los nudos en $ S^3 $, que es un problema relativo porque tiene que ver con la forma del nudo en $ S^3 $, se transforma en un problema absoluto, ya que tiene que ver únicamente con el estudio de los espacios complementarios.
+
+Sin embargo, no siempre es posible transformar un problema relativo en uno absoluto. Un ejemplo de ello es que la conjetura anterior es falsa para el caso de enlaces.
+'''
+
+
+with cols1[1]:
+    st.image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQePw_aJGaiSRy1UPt5xNKg2I9bDHytpFPrrp_lH4zE1oX-K40s-MBUGqBAP7regm5jLBk&usqp=CAU')
+    st.image('https://upload.wikimedia.org/wikipedia/commons/3/38/Knot_Unfolding.gif')
+
+st.title('Problemas locales')
+
+
+sac.divider(label='', icon='link-45deg', align='center',key='div2')
+
+cols2 = st.columns([.5,.5])
+
+with cols2[0]:
+    st.header('¿Cuándo un nudo es anfiqueiral?')
+    st.divider()
+    r'''
+Recordemos que un nudo es anfiqueiral si es equivalente a su imagen especular. Como ejemplo, hemos observado que el
+nudo 8 es anfiqueiral. Por otro lado, mencionamos que el nudo trébol no lo es. Una forma de demostrarlo es utilizando
+el polinomio de Jones, que es un invariante que describiremos en la sección siguiente.
+
+Recordemos que el nudo trébol es un caso particular de nudos tóricos. En general, para los nudos tóricos $K(q, r)$,
+se sabe que no son anfiqueirales [4, Teorema 7.4.2].
+
+Además, se ha establecido que los nudos alternantes cuyo número mínimo de puntos de cruce  es impar no pueden ser anfiqueirales.'''
+
+
+with cols2[1]:
+    st.header('¿Cuándo un nudo es primo?')
+    st.divider()
+    r'''
+En muchas ocasiones, no es evidente determinar si un nudo es primo a partir de un diagrama dado. En la Figura 3.2
+se presentan dos diagramas del mismo nudo.
+Este problema se ha resuelto por completo para el caso de nudos alternantes, es decir, se puede determinar cuándo un nudo
+alternante es primo o no. También se ha demostrado que los nudos con un número de puentes igual a 2
+son primos. Ejemplos de este tipo de nudos son el nudo trébol y el nudo 8.
+
+    '''
+
+
+sac.divider(label='', icon='link-45deg', align='center',key='div3')
+
+cols3 = st.columns([.5,.5])
+
+with cols3[0]:
+    st.header('¿Cuándo un nudo es invertible?')
+    st.divider()
+    r'''
+Los nudos que tienen un número reducido de puntos de cruce suelen ser invertibles.
+Como vimos en la Figuras anteriores, el nudo trébol es un ejemplo de nudo invertible. La existencia de nudos no invertibles
+fue demostrada por H. F. Trotter en 1963. En la Figura (a), se presenta un ejemplo de un nudo no invertible
+descubierto por Trotter, y después de este hallazgo, se encontraron muchos otros nudos no invertibles.
+De hecho, se podría decir que la mayoría de los nudos son no invertibles en la actualidad.
+En la Figura  (b), se muestra el nudo no invertible más simple.
+'''
+    st.image('https://media.nature.com/lw767/magazine-assets/d41586-021-03639-4/d41586-021-03639-4_19914646.gif')
+
+
+with cols3[1]:
+    st.header('¿Cuál es el período de un nudo?')
+    st.divider()
+    r'''
+El período de un nudo se refiere a la cantidad de rotaciones necesarias alrededor de un eje para que el nudo vuelva a su forma original. Por ejemplo, si rotamos el nudo 8 de la Figura 3.4 (a) en un ángulo de $\pi$ radianes alrededor del eje $Oz$, la figura volverá a su forma original. Por lo tanto, decimos que el nudo 8 tiene un período de $2$. De manera similar, si rotamos el nudo trébol de la Figura 3.4 (b) en un ángulo de $\frac{2\pi}{3}$ radianes alrededor del eje $Oz$, también regresará a su forma original. En general, si podemos rotar un nudo en un ángulo de $\frac{2\pi}{n}$ radianes alrededor de algún eje de manera que vuelva a su forma original, entonces decimos que el nudo tiene un período de $n$.
+
+El problema local en este contexto es determinar todos los posibles períodos de un nudo dado. Este problema ha sido completamente resuelto para el caso de los nudos tóricos; en particular, el nudo $K(q, r)$ tiene períodos $|q|$ y $|r|$.
+
+    '''
+
+    st.image('https://i.gifer.com/881J.gif')
