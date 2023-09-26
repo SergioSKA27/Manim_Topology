@@ -109,6 +109,8 @@ if men == 'Enlaces':
 if men == 'Problemas':
     switch_page('Problems')
 
+if men == 'Trenzas':
+    switch_page('braids')
 
 
 st.markdown(r'''

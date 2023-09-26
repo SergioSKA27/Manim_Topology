@@ -105,6 +105,8 @@ if men == 'Problemas':
 if men == 'Invariantes':
     switch_page('Invariants')
 
+if men == 'Trenzas':
+    switch_page('braids')
 
 if men == 'Referencias':
     switch_page('References')

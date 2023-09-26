@@ -112,7 +112,8 @@ if men == 'Problemas':
 if men == 'Invariantes':
     switch_page('Invariants')
 
-
+if men == 'Trenzas':
+    switch_page('braids')
 
 st.markdown(r'''
 <style>

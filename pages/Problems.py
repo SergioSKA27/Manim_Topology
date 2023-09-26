@@ -109,6 +109,9 @@ if men == 'Enlaces':
 if men == 'Invariantes':
     switch_page('Invariants')
 
+if men == 'Trenzas':
+    switch_page('braids')
+
 st.markdown(r'''
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");

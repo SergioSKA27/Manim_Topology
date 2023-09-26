@@ -112,6 +112,8 @@ if men == 'Invariantes':
 if men == 'Referencias':
     switch_page('References')
 
+if men == 'Trenzas':
+    switch_page('braids')
 
 st.markdown(r'''
 <style>

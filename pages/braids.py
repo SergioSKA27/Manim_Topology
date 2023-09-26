@@ -82,7 +82,7 @@ with st.sidebar:
 
     ]),
 
-], format_func='title', open_all=True,index=11)
+], format_func='title', open_all=True,index=10)
 
 
 if men == 'Topología':
@@ -94,14 +94,14 @@ if men == 'Historia':
 if men == 'Definiciones':
     switch_page('knotsdef')
 
-
 if men == 'Pagina Principal':
     switch_page('Main')
-
 
 if men == 'Nudos Toroidales':
     switch_page('torusknots')
 
+if men == 'Referencias':
+    switch_page('References')
 
 if men == 'Enlaces':
     switch_page('links')
@@ -112,8 +112,6 @@ if men == 'Problemas':
 if men == 'Invariantes':
     switch_page('Invariants')
 
-if men == 'Trenzas':
-    switch_page('braids')
 
 st.markdown(r'''
 <style>
@@ -433,7 +431,7 @@ body {
 
 st.markdown('''
 <div class="content">
-  <h1 class="title">Referencias
+  <h1 class="title">Trenzas
     <div class="aurora">
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
@@ -445,39 +443,85 @@ st.markdown('''
 </div>
 ''',unsafe_allow_html=True)
 
-
-sac.divider(label='', icon='postcard-heart', align='center',key='div')
-
-
-
+st.divider()
 '''
-1. Adams, C. C. (1994). "The Knot Book: An Elementary Introduction to the Mathematical Theory of Knots." American Mathematical Society.
+Al principio de la década de 1930, Emil Artin introdujo el concepto matemático de trenza con la intención de aplicarlo al estudio de los nudos. Sin embargo, en ese momento, este enfoque no tuvo mucho éxito y la investigación en este campo comenzó a disminuir. Fue en la década de 1950 cuando se descubrió que la teoría de trenzas tenía aplicaciones en otras áreas de las matemáticas, lo que impulsó nuevas investigaciones en este campo.
 
-2. Rolfsen, D. (1976). "Knots and Links." Mathematics Lecture Series, Publish or Perish.
+Con la aparición del polinomio de Jones en 1984, se revivió la idea original de Artin, ya que las trenzas desempeñaron un papel fundamental en la definición de este polinomio.
 
-3. Kauffman, L. H. (1987). "On Knots." Princeton University Press.
+En este capítulo, proporcionaremos una breve introducción a los conceptos fundamentales de la teoría de trenzas.'''
 
-4. Burde, G., & Zieschang, H. (2003). "Knots." De Gruyter Studies in Mathematics, Walter de Gruyter.
+sac.divider(label='', icon='bezier', align='center',key='div')
 
-5. Lickorish, W. B. R. (1997). "An Introduction to Knot Theory." Graduate Texts in Mathematics, Springer.
+cols = st.columns([.5,.5])
 
-6. Adams, C. C. (2004). "The Knot Book: An Elementary Introduction to the Mathematical Theory of Knots." American Mathematical Society.
+with cols[0]:
+    st.header('El grupo de trenzas')
+    st.divider()
+    r'''
+Una n-trenza se define como una colección de cuerdas no anudadas que descienden desde $n$ puntos en la tapa superior de un cubo unitario $B$ y llegan a $n$ puntos diferentes en la tapa inferior del cubo, sin necesidad de que lleguen a los puntos correspondientes. Estas cuerdas se enlazan entre sí mientras descienden. Dos trenzas se consideran equivalentes si pueden deformarse una en la otra mediante isotopías ambientales que mantienen fijos los puntos extremos de las cuerdas.
 
-7. Livingston, C. (1996). "Knot Theory." Mathematical Association of America.
+Similar a los nudos, podemos obtener diagramas regulares de las trenzas proyectándolas sobre el plano $yz$. Estos diagramas consisten en conectar directamente los puntos $A_i$ con los puntos $A_i'$ $(i = 1, \ldots, n)$ mediante segmentos de línea recta. Esto nos da una trenza especial conocida como la n-trenza trivial, que se representa en la siguiente figura:
 
-8. Rolfsen, D. (1980). "Nudos y superficies." Publicacions de la Universitat de València.
-
-9. González-Acuña, F. (1998). "Introducción a la teoría de nudos." Universidad de Chile.
-
-10. Cisneros-Molina, J. L. (2008). "Knot Theory and its Application." World Scientific Publishing.
-
-11. Torres-Gomez, L. (2009). "Introducción a la teoría de nudos y a las variedades 3-dimensionales." Universidad de los Andes.
-
-12. Montesinos, J. M. (1990). "Introducción a la teoría de nudos." Revista de la Real Academia de Ciencias Exactas, Físicas y Naturales. Serie A. Matemáticas, 84(3), 363-383.
-
-13. Ortiz-Bobadilla, L. (2004). "Introducción a la teoría de nudos." Universidad Nacional Autónoma de México.
-
-
+En la figura, los puntos $A_i$ en la tapa superior se conectan con los puntos correspondientes $A_i'$ en la tapa inferior mediante líneas rectas, formando así la n-trenza trivial.
 '''
 
-sac.divider(label='', icon='journal-bookmark-fill', align='center',key='div1')
+
+with cols[1]:
+    st.image('pages/resources/trenza1.png')
+    st.image('pages/resources/trenzatrivial.png')
+
+
+
+sac.divider(label='', icon='bezier', align='center',key='div1')
+
+cols1 = st.columns([.5,.5])
+
+with cols1[0]:
+    st.header('El grupo de trenzas')
+    st.divider()
+    r'''
+Dado una n-trenza $\alpha$ en la que sus cuerdas están conectadas de la siguiente manera: $A_1$ con $A_{i_1}$, $A_2$ con $A_{i_2}$, ..., $A_n$ con $A_{i_n}$, podemos asociarle la siguiente permutación:
+
+$$
+\left( \begin{array}{cccc}
+1 & 2 & \ldots & n \\
+i_1 & i_2 & \ldots & i_n \\
+\end{array} \right)
+$$
+
+Esta permutación se llama la "permutación de la trenza $\alpha$". Es importante destacar que la permutación de
+la n-trenza trivial es simplemente la permutación identidad. Las trenzas cuya permutación es la identidad se llaman "trenzas puras".
+
+Denotaremos el conjunto de todas las n-trenzas (considerando clases de equivalencia) como Bn. Si tenemos dos elementos
+$\alpha$ y $\beta$ en Bn, podemos definir un producto para estas dos n-trezas. Este producto consiste en pegar la base
+del cubo que contiene $\alpha$ con la tapa superior del cubo que contiene $\beta$, lo que resulta en un paralelepípedo
+que contiene una nueva trenza creada al superponer $\alpha$ y $\beta$. Esta nueva trenza se llama el "producto de
+$\alpha$ y $\beta$" y se denota como $\alpha\beta$. Es importante tener en cuenta que en general, $\alpha\beta$
+no es igual a $\beta\alpha$, lo que significa que el producto no es conmutativo.'''
+
+
+with cols1[1]:
+    st.image('pages/resources/productotrenza.png')
+
+
+
+
+
+sac.divider(label='', icon='bezier', align='center',key='div2')
+
+cols2 = st.columns([.5,.5])
+
+with cols2[0]:
+    st.header('El grupo de trenzas')
+    st.divider()
+    r'''
+Bajo esta operación de producto, el conjunto $B_n$ adquiere una estructura de grupo. Es sencillo demostrar, utilizando diagramas de trenzas, que esta operación es asociativa y que el elemento neutro está representado por la n-trenza trivial, que denotaremos como $e$.
+
+Además, todo elemento $\alpha$ en $B_n$ tiene un elemento inverso $\alpha^{-1}$. Si consideramos la base del cubo que contiene a $\alpha$ como un espejo y reflejamos $\alpha$ en ese espejo, obtendremos su inverso $\alpha^{-1}$. Esto se ilustra en la Figura 5.4. Por lo tanto, tenemos que $\alpha\alpha^{-1} = e$ y $\alpha^{-1}\alpha = e$.
+
+El grupo $B_n$ se denomina el "grupo de n-trenzas".'''
+
+
+with cols2[1]:
+    st.image('pages/resources/trenzainversa.png')
