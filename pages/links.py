@@ -439,3 +439,93 @@ st.markdown('''
 
 
 sac.divider(label='', icon='link-45deg', align='center',key='div')
+
+cols = st.columns([.5,.5])
+
+with cols[0]:
+    st.header('Enlaces')
+    st.divider()
+    r'''
+Los enlaces son una generalización de los nudos en la que podemos tener más de una cuerda.
+
+**Definición:** Un enlace es una colección ordenada finita de nudos que no se intersectan entre sí. Cada nudo $K_i$ se dice que es una componente del enlace.
+
+Al igual que con los nudos, tenemos una definición de cuando dos enlaces son equivalentes.
+
+**Definición:** Dos enlaces $L = \{K_1, K_2, . . . , K_m\}$ y $L' = \{K'_1, K'_2, . . . , K'_n\}$ son equivalentes si se satisfacen las siguientes condiciones:
+
+1. $m = n$, es decir, $L$ y $L'$ tienen el mismo número de componentes.
+
+2. Existe un homeomorfismo de $\mathbb{R}^3$ en sí mismo que preserva la orientación que manda la colección $K_1 \cup \ldots \cup K_m$ en la colección $K'_1 \cup \ldots \cup K'_n$.
+
+En la Figura se muestran algunos ejemplos de enlaces. Si en la construcción (iii) de nudos tóricos dada en la página 16 no pedimos que $r$ y $q$ sean primos relativos, entonces obtendremos un enlace cuyo número de componentes es el máximo común divisor de $r$ y $q$. Estos enlaces son conocidos como enlaces tóricos.
+'''
+
+
+with cols[1]:
+    st.video('Videos/PAGINA3/Enlaces11.mp4')
+
+
+
+sac.divider(label='', icon='link-45deg', align='center',key='div1')
+
+cols1 = st.columns([.5,.5])
+
+with cols1[0]:
+    st.header('Diagramas Regulares')
+    st.divider()
+    r'''
+Un nudo generalmente se especifica mediante una proyección, y de hecho, todos los ejemplos que hemos presentado son proyecciones de los nudos correspondientes. Consideremos la proyección paralela dada por:
+
+$$
+P : \mathbb{R}^3 \rightarrow \mathbb{R}^3
+$$
+
+$$
+P(x, y, z) = (x, y, 0).
+$$
+
+Si $K$ es un nudo (o enlace), diremos que $P(K) = \hat{K}$ es la proyección de $K$. Además, si $K$ tiene asignada una orientación, $\hat{K}$ hereda una orientación de manera natural. Sin embargo, $\hat{K}$ no es una curva cerrada simple en el plano, ya que posee varios puntos de intersección. Un punto $p$ de $\hat{K}$ se llama un punto de cruce si la imagen inversa $P^{-1}(p) \cap K$ contiene más de un punto de $K$. El orden de $p \in \hat{K}$ es la cardinalidad de $(P^{-1}) \cap K$. Así, un punto doble es un punto de cruce de orden 2, un punto triple es uno de orden 3, etc.
+
+En general, $\hat{K}$ puede ser muy complicado en cuanto al número y tipo de puntos de cruce presentes. Sin embargo, es posible que $K$ sea equivalente a otro nudo cuya proyección sea muy simple. Para un nudo poligonal, las proyecciones más simples son las de los nudos que están en posición regular.
+
+
+
+'''
+
+
+with cols1[1]:
+    tabs  = st.tabs(['Diagrama en $\mathbb{R}^2$','Representación en $\mathbb{R}^3$',])
+    with tabs[0]:
+      st.video('Videos/PAGINA3/PoligonalKnot.mp4')
+
+    with tabs[1]:
+      st.video('Videos/PAGINA3/DiagramaRto3d.mp4')
+
+
+
+
+
+sac.divider(label='', icon='link-45deg', align='center',key='div2')
+
+cols2 = st.columns([.5,.5])
+
+with cols2[0]:
+    st.header(' Nudo en Posición Regular')
+    st.divider()
+    r'''
+**Definición:**
+
+Un nudo (o enlace) $K$ se encuentra en posición regular si su proyección satisface las siguientes condiciones:
+
+(i) Los únicos puntos de cruce de $\hat{K}$ son puntos dobles.
+
+(ii) Ningún punto doble es la imagen de ningún vértice de $K$.
+
+La segunda condición asegura que cada punto doble represente un punto de cruce genuino, como se ilustra en la Figura 2.14 (a), mientras que se prohíben los puntos dobles como en (b). La proyección de un nudo en posición regular se denomina proyección regular.
+
+'''
+
+
+with cols2[1]:
+    ''''''
