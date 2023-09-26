@@ -94,6 +94,9 @@ if men == 'Enlaces':
 if men == 'Problemas':
     switch_page('Problems')
 
+if men == 'Invariantes':
+    switch_page('Invariants')
+
 if men == 'Referencias':
     switch_page('References')
 

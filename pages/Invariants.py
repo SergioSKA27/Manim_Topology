@@ -82,7 +82,7 @@ with st.sidebar:
 
     ]),
 
-], format_func='title', open_all=True,index=7)
+], format_func='title', open_all=True,index=9)
 
 
 if men == 'Topología':
@@ -94,23 +94,21 @@ if men == 'Historia':
 if men == 'Definiciones':
     switch_page('knotsdef')
 
-
 if men == 'Pagina Principal':
     switch_page('Main')
-
 
 if men == 'Nudos Toroidales':
     switch_page('torusknots')
 
+if men == 'Referencias':
+    switch_page('References')
+
+if men == 'Enlaces':
+    switch_page('links')
+
 if men == 'Problemas':
     switch_page('Problems')
 
-if men == 'Invariantes':
-    switch_page('Invariants')
-
-
-if men == 'Referencias':
-    switch_page('References')
 
 
 st.markdown(r'''
@@ -431,7 +429,7 @@ body {
 
 st.markdown('''
 <div class="content">
-  <h1 class="title">Enlaces
+  <h1 class="title">Invariantes
     <div class="aurora">
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>
@@ -443,33 +441,54 @@ st.markdown('''
 </div>
 ''',unsafe_allow_html=True)
 
+st.divider()
+'''
+En la Sección anterior, se definió un invariante de nudos como una cantidad u objeto matemático que no cambia cuando
+transformamos un nudo en otro equivalente. Estos invariantes son esenciales para distinguir entre nudos que no son
+equivalentes, ya que basta con mostrar que hay un invariante cuyo valor es diferente para dichos nudos.
+
+Un ejemplo simple de invariante para enlaces, derivado directamente de la definición de equivalencia de enlaces,
+es el número de componentes. Dos enlaces con un número diferente de componentes no pueden ser equivalentes.
+Sin embargo, este invariante no es muy poderoso, ya que existen muchos enlaces con el mismo número de componentes
+que no son equivalentes; por ejemplo, todos los nudos son enlaces de una sola componente.
+
+En el presente capítulo, describiremos algunos de los invariantes de nudos (y enlaces) más importantes y poderosos.
+Estos invariantes desempeñan un papel fundamental en la teoría de nudos al proporcionar herramientas para distinguir
+entre distintos tipos de nudos y enlaces.'''
 
 sac.divider(label='', icon='link-45deg', align='center',key='div')
 
 cols = st.columns([.5,.5])
 
 with cols[0]:
-    st.header('Enlaces')
+    st.header('Movimientos de Reidemeister')
     st.divider()
     r'''
-Los enlaces son una generalización de los nudos en la que podemos tener más de una cuerda.
-
-**Definición:** Un enlace es una colección ordenada finita de nudos que no se intersectan entre sí. Cada nudo $K_i$ se dice que es una componente del enlace.
-
-Al igual que con los nudos, tenemos una definición de cuando dos enlaces son equivalentes.
-
-**Definición:** Dos enlaces $L = \{K_1, K_2, . . . , K_m\}$ y $L' = \{K'_1, K'_2, . . . , K'_n\}$ son equivalentes si se satisfacen las siguientes condiciones:
-
-1. $m = n$, es decir, $L$ y $L'$ tienen el mismo número de componentes.
-
-2. Existe un homeomorfismo de $\mathbb{R}^3$ en sí mismo que preserva la orientación que manda la colección $K_1 \cup \ldots \cup K_m$ en la colección $K'_1 \cup \ldots \cup K'_n$.
-
-En la Figura se muestran algunos ejemplos de enlaces. Si en la construcción (iii) de nudos tóricos dada en la página anterior no pedimos que $r$ y $q$ sean primos relativos, entonces obtendremos un enlace cuyo número de componentes es el máximo común divisor de $r$ y $q$. Estos enlaces son conocidos como enlaces tóricos.
+Anteriormente , observamos que a menudo es útil proyectar los nudos en el plano y luego estudiarlos a través de sus
+diagramas regulares. Para llevar a cabo este proceso, nos preguntamos cómo se transforma el diagrama regular de un nudo
+cuando aplicamos una isotopía para convertirlo en otro nudo equivalente en una posición regular. ¿Existen reglas que nos
+permitan realizar esta transformación directamente, sin necesidad de considerar la transformación del nudo original?
+Esta pregunta fue investigada por K. Reidemeister en la década de 1920, y él describió estas reglas, que ahora se
+conocen como los "movimientos de Reidemeister". Gracias a estos movimientos, se pudieron definir muchos invariantes
+de nudos. Para demostrar que una cantidad es un invariante de nudos, solo necesitamos verificar que no cambie
+al aplicar los movimientos de Reidemeister.
 '''
 
-
 with cols[1]:
-    st.video('Videos/PAGINA3/Enlaces11.mp4')
+    st.header('Invariantes de nudos')
+    st.divider()
+    r'''
+    Los movimientos de Reidemeister se dividen en tres tipos: tipo I (agregar o quitar un rizo), tipo II
+    (agregar o quitar dos cruces consecutivos, ya sea por encima o por debajo) y tipo III (movimiento triangular).
+    Todos estos movimientos se ilustran en la Figura 4.1.
+
+Reidemeister demostró que estos tres movimientos, junto con equivalencias topológicas planas de los diagramas,
+son suficientes para generar la isotopía espacial. En otras palabras, Reidemeister estableció que dos nudos (o enlaces)
+en el espacio pueden deformarse uno en el otro (isotopía espacial) si y solo si sus diagramas regulares pueden
+transformarse uno en el otro mediante isotopías planas y la aplicación de los tres movimientos (y sus inversos).
+
+ '''
+    st.image('https://i0.wp.com/mathemalchemy.org/wp-content/uploads/2021/02/reidemeisters.gif?resize=900%2C292&ssl=1',use_column_width=True)
 
 
 
@@ -478,60 +497,47 @@ sac.divider(label='', icon='link-45deg', align='center',key='div1')
 cols1 = st.columns([.5,.5])
 
 with cols1[0]:
-    st.header('Diagramas Regulares')
+    st.header('Número Mínimo de Cruces')
     st.divider()
     r'''
-Un nudo generalmente se especifica mediante una proyección, y de hecho, todos los ejemplos que hemos presentado son proyecciones de los nudos correspondientes. Consideremos la proyección paralela dada por:
+En la teoría de nudos, uno de los conceptos clave es el número mínimo de cruces, denotado como $c(K)$. Para comprenderlo
+mejor, consideremos un diagrama regular $D$ de un nudo (o enlace) $K$, que contiene un número finito de puntos de cruce.
+Sin embargo, es importante destacar que este número, $c(D)$, no es un invariante de nudos. Un ejemplo ilustrativo es la
+Figura, que muestra dos diagramas regulares, $D$ y $D'$, del nudo trivial, con diferentes números de puntos de
+cruce: $c(D) = 0$ y $c(D') = 1$.
+
+En lugar de considerar un solo diagrama, analizamos todos los diagramas regulares posibles del nudo $K$ y denotamos por
+$c(K)$ al número mínimo de puntos de cruce entre todos estos diagramas regulares. Formalmente, se define como:
 
 $$
-P : \mathbb{R}^3 \rightarrow \mathbb{R}^3
+c(K) = \min_D c(D)
 $$
 
+donde $D$ es el conjunto de todos los diagramas regulares de $K$. La importancia de $c(K)$ radica en que es un invariante de
+nudos, lo que significa que no cambia cuando transformamos un nudo en otro equivalente. Este invariante tiene propiedades interesantes:
+
+1. El nudo trivial es el único nudo que tiene diagramas regulares con $c(D) = 0, 1\ o\ 2$.
+
+2. El nudo trébol, ya sea dextrógiro o levógiro, tiene $c(K) = 3$. Además, entre todos los nudos y enlaces, es el único con $c(K) = 3$.
+
+3. Para el enlace toroidal $K(q, r)$, el número mínimo de puntos de cruce es dado por:
+
 $$
-P(x, y, z) = (x, y, 0).
+c(K(q, r)) = \min\{|q|(|r| - 1), |r|(|q| - 1)\}
 $$
-
-Si $K$ es un nudo (o enlace), diremos que $P(K) = \hat{K}$ es la proyección de $K$. Además, si $K$ tiene asignada una orientación, $\hat{K}$ hereda una orientación de manera natural. Sin embargo, $\hat{K}$ no es una curva cerrada simple en el plano, ya que posee varios puntos de intersección. Un punto $p$ de $\hat{K}$ se llama un punto de cruce si la imagen inversa $P^{-1}(p) \cap K$ contiene más de un punto de $K$. El orden de $p \in \hat{K}$ es la cardinalidad de $(P^{-1}) \cap K$. Así, un punto doble es un punto de cruce de orden 2, un punto triple es uno de orden 3, etc.
-
-En general, $\hat{K}$ puede ser muy complicado en cuanto al número y tipo de puntos de cruce presentes. Sin embargo, es posible que $K$ sea equivalente a otro nudo cuya proyección sea muy simple. Para un nudo poligonal, las proyecciones más simples son las de los nudos que están en posición regular.
-
 
 
 '''
-
 
 with cols1[1]:
-    tabs  = st.tabs(['Diagrama en $\mathbb{R}^2$','Representación en $\mathbb{R}^3$',])
-    with tabs[0]:
-      st.video('Videos/PAGINA3/PoligonalKnot.mp4')
-
-    with tabs[1]:
-      st.video('Videos/PAGINA3/DiagramaRto3d.mp4')
-
-
-
-
-
-sac.divider(label='', icon='link-45deg', align='center',key='div2')
-
-cols2 = st.columns([.5,.5])
-
-with cols2[0]:
-    st.header(' Nudo en Posición Regular')
-    st.divider()
     r'''
-**Definición:**
+    Además, existe una conjetura que sugiere que este invariante es aditivo bajo la suma conexa:
 
-Un nudo (o enlace) $K$ se encuentra en posición regular si su proyección satisface las siguientes condiciones:
+**Conjetura:** Sean $K1$ y $K2$ dos nudos (o enlaces) arbitrarios. Entonces, $c(K1\# K2) = c(K1) + c(K2)$.
 
-(i) Los únicos puntos de cruce de $\hat{K}$ son puntos dobles.
-
-(ii) Ningún punto doble es la imagen de ningún vértice de $K$.
-
-La segunda condición asegura que cada punto doble represente un punto de cruce genuino, como se ilustra en la Figura 2.14 (a), mientras que se prohíben los puntos dobles como en (b). La proyección de un nudo en posición regular se denomina proyección regular.
-
-'''
+Se ha demostrado que esta conjetura es cierta cuando $K1$ y $K2$ son nudos (o enlaces) alternantes.
 
 
-with cols2[1]:
-    ''''''
+ '''
+
+

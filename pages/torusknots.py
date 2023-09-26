@@ -109,6 +109,10 @@ if men == 'Referencias':
 if men == 'Problemas':
     switch_page('Problems')
 
+if men == 'Invariantes':
+    switch_page('Invariants')
+
+
 
 st.markdown(r'''
 <style>

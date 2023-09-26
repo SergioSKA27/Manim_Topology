@@ -106,6 +106,8 @@ if men == 'Referencias':
 if men == 'Enlaces':
     switch_page('links')
 
+if men == 'Invariantes':
+    switch_page('Invariants')
 
 st.markdown(r'''
 <style>
