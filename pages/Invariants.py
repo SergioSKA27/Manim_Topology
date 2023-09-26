@@ -565,6 +565,7 @@ de los espacios, lo que lo convierte en una herramienta valiosa para distinguir 
 de su topología subyacente.
 
 '''
+    st.image('pages/resources/fundamentalg.png',use_column_width=True)
 
 with cols2[1]:
     st.header('Grupo Fundamental')
@@ -814,18 +815,167 @@ La idea principal detrás del polinomio de Alexander es representar un nudo medi
 
 Para entender mejor este concepto, consideremos un ejemplo simple: el nudo trébol (también conocido como nudo de tres hojas). Este nudo se representa mediante una proyección plana, y el polinomio de Alexander asociado se denota como $\Delta(t)$. La representación del polinomio de Alexander para el nudo trébol es:
 
-$\Delta(t) = t^{-1} - 1 + t$
+$\Delta(t) = t^{2} - t + 1$
 
 En este caso, la variable $t$ es una variable formal utilizada en álgebra, y el polinomio tiene coeficientes enteros. La forma específica del polinomio se deriva de las ecuaciones que describen cómo las partes del nudo interactúan en la proyección.
 
-El polinomio de Alexander puede ser utilizado para determinar si dos proyecciones diferentes de un nudo representan el mismo nudo. Si los polinomios asociados a estas proyecciones son idénticos, entonces los nudos son equivalentes.
-
-En resumen, el polinomio de Alexander es una herramienta matemática fundamental en la teoría de nudos que nos permite caracterizar y distinguir diferentes nudos. Su utilización proporciona una forma formal de estudiar y clasificar los nudos en el vasto mundo de la topología y la geometría.
 '''
 
 with cols8[1]:
     st.image('pages/resources/alexanderpoly.png',use_column_width=True)
 
 
+sac.divider(label='', icon='infinity', align='center',key='div9')
+
+cols9 = st.columns([.5,.5])
+
+with cols9[0]:
+    st.header('Polinomio de Alexander-Conway')
+    st.divider()
+    r'''
+Una de las propiedades fundamentales del polinomio de Alexander es que si dos nudos o enlaces orientados, $K_1$ y $K_2$, son equivalentes, entonces sus polinomios de Alexander, $\Delta_{K_1}(t)$ y $\Delta_{K_2}(t)$, son iguales salvo un múltiplo de $t^n$, donde $n$ es un entero. En otras palabras, el polinomio de Alexander puede distinguir entre nudos y enlaces distintos, pero no puede diferenciar entre un nudo y su imagen especular.
+
+A lo largo de la historia de la teoría de nudos, el polinomio de Alexander ha demostrado ser una herramienta valiosa en el estudio de estos objetos matemáticos. Con el tiempo, se han desarrollado diferentes enfoques y métodos para calcularlo. Uno de los avances significativos en su cálculo fue el descubrimiento realizado por R. H. Fox de la técnica del *cálculo diferencial libre*, que permite obtener el polinomio de Alexander a partir de cualquier presentación del grupo fundamental del complemento del nudo.
+
+En 1970, John Horton Conway llevó este concepto un paso más allá al generalizar el polinomio de Alexander y desarrollar el *polinomio de Conway*, denotado como $\nabla_K(z)$. El polinomio de Conway se caracteriza por dos axiomas fundamentales que le confieren una definición recursiva y simple.
+'''
+
+with cols9[1]:
+    r'''
+    Los polinomios de Conway se definen a través de dos axiomas fundamentales:
+
+**Axioma 1:** Si el nudo $K$ es el nudo trivial, entonces $\nabla_K(z) = 1$. Esto establece que el polinomio de Conway del nudo trivial es igual a 1.
+
+**Axioma 2:** Supongamos que $D^+$, $D^-$ y $D^0$ son los diagramas regulares de los nudos (o enlaces) $K^+$, $K^-$ y $K^0$, respectivamente. Estos diagramas regulares son idénticos en todos los aspectos, excepto en una vecindad de un punto de cruce, como se muestra en la Figura 4.11. Entonces, los polinomios de Laurent de los tres nudos están relacionados de la siguiente manera:
+$$
+\nabla_{K^+}(z) - \nabla_{K^-}(z) = z\nabla_{K^0}(z).
+$$
+Esta relación entre los polinomios de Laurent de los nudos correspondientes $K^+$, $K^-$ y $K^0$ se denomina la **relación de madejas**. Los diagramas $D^+$, $D^-$ y $D^0$ se llaman **diagramas de madejas**, y cualquier operación que reemplace uno de estos diagramas por otro se llama una **operación de madejas**.
+
+El polinomio $\nabla_K(z)$, definido mediante estos axiomas, es conocido como el **polinomio de Conway**. Además, existe una relación entre el polinomio de Conway y el polinomio de Alexander, como se establece en el siguiente teorema:
+
+**Teorema 4.3:** $\Delta_K(t) = \nabla_K\left(\sqrt{t} - \frac{1}{\sqrt{t}}\right)$.
+
+Este teorema muestra cómo el polinomio de Conway y el polinomio de Alexander están relacionados a través de una transformación específica de la variable.
+
+    '''
+
+st.image('pages/resources/madejas.png',width=500)
+
+
+
+
+sac.divider(label='', icon='infinity', align='center',key='div10')
+
+cols10 = st.columns([.5,.5])
+
+with cols10[0]:
+    st.header('Polinomio de Alexander-Conway')
+    st.divider()
+    r'''
+En otras palabras, si sustituimos $z$ por $\sqrt{t} - \frac{1}{\sqrt{t}}$ en el polinomio de Conway, obtenemos el polinomio de Alexander. Por esta razón, el polinomio $\nabla_K(z)$ también se conoce como el **polinomio de Alexander–Conway**.
+
+Un resultado útil para calcular este polinomio es el siguiente:
+
+**Proposición 4.4:** El polinomio de Conway del enlace trivial con $\mu$ componentes ($\mu \geq 2$) es $0$.
+
+La manera más efectiva de calcular el polinomio de Conway es mediante el uso de un **diagrama de árbol de madejas**. Para ilustrar este método, consideremos el ejemplo del nudo trébol. Para facilitar los cálculos, reescribiremos la relación de madejas $(*)$ de la siguiente manera:
+
+$$
+\nabla_{D^+}(z) = \nabla_{D^-}(z) + z\nabla_{D^0}(z)
+$$
+
+$$
+\nabla_{D^-}(z) = \nabla_{D^+}(z) - z\nabla_{D^0}(z) \quad (\diamond)
+$$
+
+
+
+
+'''
+    st.image('pages/resources/arbolmadejas.png',use_column_width=True)
+
+with cols10[1]:
+    r'''
+    El diagrama de árbol de madejas del nudo trébol se muestra en la Figura 4.12. El proceso comienza con el diagrama regular del nudo para el cual deseamos calcular el polinomio de Conway, en este caso, el nudo trébol. Luego, en el siguiente nivel del árbol, se generan dos diagramas regulares, obtenidos aplicando las dos posibles operaciones de madejas a un punto de cruce del diagrama original. Estos se unen mediante un segmento en el que se anota el coeficiente correspondiente, obtenido de las relaciones $(\diamond)$. Este proceso se repite hasta obtener solo nudos y enlaces triviales, a los cuales ya no se les pueden aplicar operaciones de madejas. El polinomio de Conway se obtiene sumando los polinomios de los nudos (o enlaces) triviales en los extremos de cada rama del árbol y multiplicándolos por los coeficientes que aparecen en el camino que conecta el diagrama original con los diagramas de los nudos o enlaces triviales. En este caso, tenemos:
+
+$$
+\nabla_K(z) = 1\nabla_O(z) + z\nabla_{OO}(z) + z^2\nabla_O(z).
+$$
+
+Donde $\nabla_O(z)$ y $\nabla_{OO}(z)$ son, respectivamente, los polinomios de Conway del nudo trivial y del enlace trivial de dos componentes. Dado que $\nabla_O(z) = 1$ y $\nabla_{OO}(z) = 0$, el cálculo se reduce a $\nabla_K(z) = 1 + z^2$. Aplicando el Teorema 4.3, obtenemos el polinomio de Alexander:
+
+$$
+\Delta_K(t) = t^{-1} - 1 + t.
+$$
+
+Siguiendo el mismo procedimiento, el polinomio de Alexander del nudo 8 es:
+
+$$
+\Delta_K(t) = -t^{-1} + 3 - t.
+$$
+
+El polinomio de Alexander resulta ser una herramienta útil para el problema global de clasificación de nudos y enlaces. Sin embargo, no es adecuado para abordar problemas locales de invertibilidad y anfiquiralidad.
+
+**Teorema 4.5:** Sea K un nudo.
+
+(i) Si $-K$ es el nudo obtenido de K invirtiendo su orientación, entonces $\Delta_K(t) = \Delta_{-K}(t)$.
+
+(ii) Si $K^*$ es la imagen especular de K, entonces $\Delta_{K^*}(t) = \Delta_K(t)$.
+
+Por lo tanto, el polinomio de Alexander no es adecuado para demostrar que los tréboles dextrógiro y levógiro no son equivalentes.
+
+**Teorema 4.6:** Sea $K_1 \# K_2$ la suma conexa de dos nudos (o enlaces). Entonces $\Delta_{K_1 \# K_2}(t) = \Delta_{K_1}(t) \cdot \Delta_{K_2}(t)$.
+    '''
+
+
+
+
+sac.divider(label='', icon='infinity', align='center',key='div11')
+
+cols11 = st.columns([.5,.5])
+
+with cols11[0]:
+    st.header('El polinomio de Jones')
+    st.divider()
+    r'''
+El polinomio de Jones se introdujo en 1984 por Vaughan Jones y fue un importante avance en la teoría de nudos.
+A diferencia del polinomio de Conway, que se basa en relaciones recursivas, el polinomio de Jones se deriva de
+una representación del grupo de trenzas de Artin en un álgebra de von Neumann. Jones demostró varios resultados
+fundamentales relacionados con su polinomio, y se basó en dos axiomas clave para definirlo de manera única.
+Estos axiomas son análogos a los utilizados en el polinomio de Conway.
+
+
+'''
+    st.image('pages/resources/Jones_polynomial.png',)
+
+with cols11[1]:
+    r'''
+    El polinomio de Jones se define para un nudo (o enlace) orientado a través de dos axiomas y es un polinomio de Laurent en √t. Estos son los axiomas del polinomio de Jones:
+
+1. **Axioma 1:** Si el nudo K es el nudo trivial, entonces el polinomio de Jones VK(t) es igual a 1.
+
+2. **Axioma 2:** Si tenemos tres diagramas de madejas D+, D- y D0, como se muestra en la Figura 4.11, entonces se cumple la siguiente relación:
+
+   $$
+   \frac{1}{t} V_{D+}(t) - tV_{D-}(t) = (\sqrt{t} - \frac{1}{\sqrt{t}})V_{D0}(t).
+   $$
+
+El algoritmo para calcular el polinomio de Jones es similar al utilizado para el polinomio de Conway y se basa en un diagrama de árbol de madejas. Sin embargo, para aplicarlo, se necesita conocer el polinomio de Jones de los enlaces triviales. Por ejemplo, el polinomio de Jones del enlace trivial de μ componentes Oμ es:
+
+$$
+V_{O\mu}(t) = (-1)^{\mu-1} \left(\sqrt{t} + \frac{1}{\sqrt{t}}\right)^{\mu-1}.
+$$
+
+Luego, se utilizan relaciones de madejas similares a las que se mencionaron en el contexto del polinomio de Conway, pero con coeficientes diferentes, debido a la variación en los axiomas. La propuesta aquí es reescribir estas relaciones para simplificar los cálculos, utilizando z como (\sqrt{t} - \frac{1}{\sqrt{t}}). Por ejemplo:
+
+$$
+V_{D+}(t) = t^2 V_{D-}(t) + tzV_{D0}(t),
+$$
+$$
+V_{D-}(t) = t^{-2} V_{D+}(t) - t^{-1}zV_{D0}(t).
+$$
+
+Finalmente, el polinomio de Jones se calcula aplicando el algoritmo de árbol de madejas, sumando los polinomios de los enlaces triviales en los extremos de cada rama del árbol, multiplicados por los coeficientes correspondientes. El polinomio de Jones se utiliza para determinar si un nudo es anfiqueiral o no, aunque no es tan útil para problemas de invertibilidad como el polinomio de Alexander.    '''
 
 
