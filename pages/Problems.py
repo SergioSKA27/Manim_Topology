@@ -570,9 +570,13 @@ with cols3[1]:
     st.header('¿Cuál es el período de un nudo?')
     st.divider()
     r'''
-El período de un nudo se refiere a la cantidad de rotaciones necesarias alrededor de un eje para que el nudo vuelva a su forma original. Por ejemplo, si rotamos el nudo 8 de la Figura 3.4 (a) en un ángulo de $\pi$ radianes alrededor del eje $Oz$, la figura volverá a su forma original. Por lo tanto, decimos que el nudo 8 tiene un período de $2$. De manera similar, si rotamos el nudo trébol de la Figura 3.4 (b) en un ángulo de $\frac{2\pi}{3}$ radianes alrededor del eje $Oz$, también regresará a su forma original. En general, si podemos rotar un nudo en un ángulo de $\frac{2\pi}{n}$ radianes alrededor de algún eje de manera que vuelva a su forma original, entonces decimos que el nudo tiene un período de $n$.
+El período de un nudo se refiere a la cantidad de rotaciones necesarias alrededor de un eje para que el nudo vuelva a
+su forma original. En general, si podemos rotar un nudo en un ángulo de $\frac{2\pi}{n}$
+radianes alrededor de algún eje de manera que vuelva a su forma original, entonces decimos que el nudo tiene un período de $n$.
 
-El problema local en este contexto es determinar todos los posibles períodos de un nudo dado. Este problema ha sido completamente resuelto para el caso de los nudos tóricos; en particular, el nudo $K(q, r)$ tiene períodos $|q|$ y $|r|$.
+El problema local en este contexto es determinar todos los posibles períodos de un nudo dado.
+Este problema ha sido completamente resuelto para el caso de los nudos tóricos;
+en particular, el nudo $K(q, r)$ tiene períodos $|q|$ y $|r|$.
 
     '''
 
