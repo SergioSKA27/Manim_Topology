@@ -456,7 +456,7 @@ En el presente capítulo, describiremos algunos de los invariantes de nudos (y e
 Estos invariantes desempeñan un papel fundamental en la teoría de nudos al proporcionar herramientas para distinguir
 entre distintos tipos de nudos y enlaces.'''
 
-sac.divider(label='', icon='link-45deg', align='center',key='div')
+sac.divider(label='', icon='infinity', align='center',key='div')
 
 cols = st.columns([.5,.5])
 
@@ -492,7 +492,7 @@ transformarse uno en el otro mediante isotopías planas y la aplicación de los 
 
 
 
-sac.divider(label='', icon='link-45deg', align='center',key='div1')
+sac.divider(label='', icon='infinity', align='center',key='div1')
 
 cols1 = st.columns([.5,.5])
 
@@ -539,5 +539,293 @@ Se ha demostrado que esta conjetura es cierta cuando $K1$ y $K2$ son nudos (o en
 
 
  '''
+    st.image('pages/resources/minimum-number-of-crossings.png')
+    st.image('pages/resources/minimum-number-of-crossings2.png',use_column_width=True)
+    st.image('pages/resources/Crossing_numbers_trefoil.svg.png',use_column_width=True)
+
+sac.divider(label='', icon='infinity', align='center',key='div2')
+
+cols2 = st.columns([.5,.5])
+
+with cols2[0]:
+    st.header('Grupo del Nudo: Un Invariante Fundamental')
+    st.divider()
+    r'''
+En la Sección anterior, mencionamos el Teorema , que establece que dos nudos equivalentes tienen complementos homeomorfos.
+Aprovechando este hecho, podemos utilizar un invariante de espacios topológicos para obtener un invariante de los nudos
+al aplicarlo a los complementos de los mismos.
+
+Uno de los primeros y más fundamentales invariantes para espacios topológicos es el **grupo fundamental**.
+Es importante notar que, en este caso, el invariante no es un número, como en los ejemplos anteriores de invariantes,
+sino un grupo, un concepto matemático más complejo.
+
+El grupo fundamental se basa en las propiedades topológicas de los espacios y se convierte en un invariante esencial
+en la teoría de nudos. Este grupo capta las propiedades fundamentales de la conectividad y la estructura topológica
+de los espacios, lo que lo convierte en una herramienta valiosa para distinguir y clasificar nudos en términos
+de su topología subyacente.
+
+'''
+
+with cols2[1]:
+    st.header('Grupo Fundamental')
+    st.divider()
+    r'''
+El grupo fundamental es un invariante topológico fundamental en matemáticas. Su construcción se basa en un espacio topológico $X$. Aquí está la idea detrás de su construcción:
+
+1. Consideramos el conjunto $\Omega$ de todas las trayectorias cerradas (o lazos) que parten de un punto fijo $p$ en $X$. Este punto se llama "punto base".
+
+2. Dividimos el conjunto $\Omega$ en clases de equivalencia, donde dos lazos son equivalentes si uno puede ser deformado continuamente en el otro. Estos lazos equivalentes se llaman "homotópicos".
+
+3. Damos a estas clases de lazos homotópicos una representación mediante corchetes, por ejemplo, $[\alpha]$. Si $\alpha$ es homotópico a $\beta$, entonces las clases $[\alpha]$ y $[\beta]$ son idénticas.
+
+4. Definimos una operación de multiplicación entre estas clases de lazos: tomamos dos representantes de las clases, $\alpha$ y $\beta$, y definimos $[\alpha][\beta]$ como la clase del lazo que parte de $p$, sigue $\alpha$, regresa a $p$, sigue $\beta$ y luego regresa nuevamente a $p$.
+
+5. Esta operación de multiplicación está bien definida, es decir, no depende de los representantes específicos que elijamos. Además, estas clases de equivalencia forman un grupo, lo que significa que la multiplicación es asociativa, existe un elemento neutro (la clase del lazo constante $e$) y cada elemento tiene un inverso. Sin embargo, la multiplicación no necesariamente es conmutativa ($[\alpha][\beta] \neq [\beta][\alpha]$).
+
+El grupo formado por estas clases de lazos homotópicos se denota como $\pi_1(X, p)$ y se llama el "grupo fundamental de $X$ con punto base $p$". Este grupo fundamental captura propiedades topológicas esenciales del espacio $X$ y se convierte en un invariante topológico poderoso utilizado en la teoría de nudos y otros campos de las matemáticas y la topología.
+
+**Definición:** El grupo del nudo, denotado como $\pi_1(R^3 \backslash K, p)$, se define como el grupo fundamental asociado a un nudo $K$ en $\mathbb{R}^3$. Aquí, $p$ es cualquier punto en el espacio tridimensional que no pertenezca al nudo $K$.
+ '''
+
+
+
+sac.divider(label='', icon='infinity', align='center',key='div3')
+
+cols3 = st.columns([.5,.5])
+
+with cols3[0]:
+    st.header('Grupo del Nudo Trivial')
+    st.divider()
+    r'''
+Vamos a calcular el grupo fundamental del nudo trivial utilizando los conceptos que hemos presentado hasta ahora. En la Figura 4.7, podemos identificar dos tipos de lazos en $R^3 \backslash K$: aquellos que rodean el nudo $K$ como $\alpha$ y $\gamma$, y aquellos que no lo hacen como $\beta$ y $\beta'$. Además, observamos que $[\alpha] = [\alpha']$ y $[\beta] = [\beta']$.
+
+Es evidente que los lazos que son homotópicos entre sí son aquellos que rodean el nudo $K$ el mismo número de veces. Por lo tanto, tenemos la clase del lazo constante $[e]$, la clase de los lazos que dan una vuelta alrededor de $K$ como $[ \alpha]$, la clase de los lazos que dan dos vueltas como $[\gamma]$, y en general, $[ \alpha^n]$ representa la clase de los lazos que dan $n$ vueltas alrededor de $K$, y tenemos que $[ \alpha^n] [ \alpha] = [ \alpha^{n+1}]$.
+
+Además, los inversos de estas clases están representados por los lazos que rodean el nudo $K$ en la dirección opuesta. Por lo tanto, es evidente que $\pi_1(R^3 \backslash K, p) \cong \mathbb{Z}$. En otras palabras, el grupo del nudo trivial es un grupo cíclico infinito, o, dicho de otra manera, isomorfo a los números enteros.
+ '''
+
+with cols3[1]:
+    st.image('pages/resources/gruponudotrivial.png')
+
+
+
+sac.divider(label='', icon='infinity', align='center',key='div4')
+
+cols4 = st.columns([.5,.5])
+
+with cols4[0]:
+    st.header('Presentaciones de Grupos')
+    st.divider()
+    r'''
+En ocasiones, es más sencillo definir un grupo mediante algunos de sus elementos, llamados generadores, y ciertas
+relaciones entre ellos. Para ilustrar este concepto, consideremos un ejemplo.
+
+Sea $G$ el grupo formado por el conjunto $\{1, a, b\}$ y la operación de multiplicación definida por la siguiente tabla:
+
+$$
+\begin{array}{c|c|c|c}
+    & 1 & a & b \\
+    \hline
+  1 & 1 & a & b \\
+  a & a & b & 1 \\
+  b & b & 1 & a \\
+\end{array}
+$$
+
+'''
+
+with cols4[1]:
+    r'''
+
+En ocasiones, podemos simplificar la descripción de un grupo al reducir la información necesaria para definirlo.
+Por ejemplo, en una tabla de multiplicación anterior, con 9 entradas, podemos observar que $b = a^2$.
+Esto nos permite describir el grupo de manera más eficiente, indicando que los elementos del grupo son $1$, $a$, y $a^2$,
+y que $a^3 = 1$. Esta forma de describir el grupo se llama una "presentación del grupo" y se denota como $\langle a \,|\, a^3 = 1 \rangle$.
+
+En general, una presentación de grupo consta de un conjunto de generadores $\hat{x} = \{x_1, x_2, \ldots\}$ y un conjunto
+de relaciones $\hat{r} = \{r_1, r_2, \ldots\}$, denotados como $\langle \hat{x} \,|\, \hat{r} \rangle$.
+
+Las relaciones en una presentación pueden implicar otras relaciones, conocidas como "consecuencias". Por ejemplo,
+si tenemos las relaciones $\hat{r} = \{a^3 = 1, b = a^2\}$, entonces $ba = 1$ es una consecuencia de $\hat{r}$.
+
+Algunos ejemplos de presentaciones de grupos son los siguientes:
+
+1. $\langle x, y \,|\, xyx = yxy \rangle$
+2. $\langle x, y \,|\, xy^2 = y^3x, yx^2 = x^3y \rangle$.
+
+Es importante destacar que un grupo puede tener múltiples presentaciones diferentes, y una pregunta relevante es
+determinar cuándo dos presentaciones distintas corresponden al mismo grupo.
+    '''
+
+
+
+
+sac.divider(label='', icon='infinity', align='center',key='div5')
+
+cols5 = st.columns([.5,.5])
+
+with cols5[0]:
+    st.header('Operaciones de Tietze y Equivalencia de Presentaciones de Grupos')
+    st.divider()
+    r'''
+
+**Definición:**   Decimos que dos presentaciones de grupos son equivalentes si corresponden a grupos isomorfos.
+
+Para resolver el problema de determinar cuándo dos presentaciones son equivalentes, introducimos las operaciones de Tietze:
+
+**Operación Tipo I**: Dada una presentación $\langle \hat{x} \,|\, \hat{r} \rangle$ y una consecuencia $s$ de $\hat{r}$, podemos considerar la presentación $\langle \hat{x} \,|\, \hat{s} \rangle$ con $\hat{s} = \hat{r} \cup \{s\}$. Entonces, $\langle \hat{x} \,|\, \hat{r} \rangle$ y $\langle \hat{x} \,|\, \hat{s} \rangle$ son equivalentes.
+
+**Operación Tipo I'**: Si una relación $r$ en $\hat{r}$ es una consecuencia de las otras relaciones en $\hat{r}$, entonces la presentación $\langle \hat{x} \,|\, \hat{r}' \rangle$ con $\hat{r}' = \hat{r} \setminus \{r\}$ es equivalente a $\langle \hat{x} \,|\, \hat{r} \rangle$.
+
+**Operación Tipo II**: Dada una presentación $\langle \hat{x} \,|\, \hat{r} \rangle$, un generador $y$ que no pertenece a $\hat{x}$, y un producto $\xi$ de elementos en $\hat{x}$, podemos considerar la presentación $\langle \hat{y} \,|\, \hat{s} \rangle$ con $\hat{y} = \hat{x} \cup \{y\}$ y $\hat{s} = \hat{r} \cup \{y = \xi\}$. Entonces, $\langle \hat{x} \,|\, \hat{r} \rangle$ y $\langle \hat{y} \,|\, \hat{s} \rangle$ son equivalentes.
+
+**Operación Tipo II'**: La inversa de la operación Tipo II.
+
+
+'''
+
+with cols5[1]:
+    r'''
+    A continuación, mostramos un ejemplo que demuestra la equivalencia entre las presentaciones $\langle x, y \,|\, xyx = yxy \rangle$ y $\langle a, b \,|\, a^3 = b^2 \rangle$:
+
+
+$\langle x, y \,|\, xyx = yxy \rangle$
+
+⇓ Tipo II: $a, a = xy$
+
+$\langle x, y, a \,|\, xyx = yxy, a = xy \rangle$
+
+⇓ Tipo II: $b, b = xyx$
+
+$\langle x, y, a, b \,|\, xyx = yxy, a = xy, b = xyx \rangle$
+
+⇓ Tipo I: $a^3 = b^2 \, (xyx)(xyx)(xyx) = (xy)(xy)(xy)$
+
+$\langle x, y, a, b \,|\, xyx = yxy, a = xy, b = xyx, a^3 = b^2 \rangle$
+
+⇓ Tipo I: $x = a^{-1}b, \, xyx = yxy ⇒ x = y^{-1}x^{-1}yxy ⇒ x = a^1b$
+
+$\langle x, y, a, b \,|\, xyx = yxy, a = xy, b = xyx, a^3 = b^2, x = a^{-1}b \rangle$
+
+⇓ Tipo I' (tres veces)
+
+$\langle x, y, a, b \,|\, a^3 = b^2, x = a^{-1}b, y = b^{-1}a^2 \rangle$
+
+⇓ Tipo II' (dos veces)
+
+$\langle a, b \,|\, a^3 = b^2 \rangle$.
+
+De esta manera, hemos demostrado que las presentaciones $\langle x, y \,|\, xyx = yxy \rangle$ y $\langle a, b \,|\, a^3 = b^2 \rangle$ son equivalentes.
+
+
+    '''
+
+
+
+sac.divider(label='', icon='infinity', align='center',key='div6')
+
+cols6 = st.columns([.5,.5])
+
+with cols6[0]:
+    st.header('Presentación del Grupo del Trébol')
+    st.divider()
+    r'''
+Para calcular la presentación del grupo de cualquier nudo poligonal, como el nudo trébol, se sigue un algoritmo específico. Aquí se describe cómo se calcula la presentación del nudo trébol como ejemplo:
+
+1. Comenzamos con un diagrama regular del nudo.
+
+2. Dividimos el nudo en 2n segmentos, eligiendo dos puntos cerca de cada cruce por debajo. Los segmentos que contienen un cruce por arriba se llaman "pasos por arriba," y los que tienen un cruce por debajo se llaman "pasos por abajo."
+
+3. Orientamos el nudo y dibujamos una flecha perpendicular en cada paso por arriba, siguiendo de izquierda a derecha con respecto a la orientación. Asignamos una letra a cada flecha, que servirá como generador en la presentación.
+
+4. Dibujamos rectángulos alrededor de cada paso por abajo y los orientamos en sentido contrario a las manecillas del reloj.
+
+5. Obtenemos una relación de cada rectángulo escribiendo una letra por cada paso por arriba que cruce un lado del
+rectángulo, siguiendo el orden y la orientación del mismo. Asignamos un exponente +1 o -1 según si la orientación del
+lado del rectángulo coincide o es opuesta a la flecha del paso correspondiente. Por ejemplo, para el rectángulo B1,
+obtenemos la relación: $x^{-1}yzy^{-1} = 1$, y para el rectángulo B2, obtenemos $y^{-1}zxz^{-1} = 1$.Finalmente, para
+el rectángulo B3, obtenemos la relación  $z^{-1}xyx^{-1} = 1.$
+
+Esta relación completa el proceso de obtener las relaciones de cada rectángulo alrededor de los pasos por abajo en el cálculo de la presentación del grupo del nudo trébol..
+'''
+
+with cols6[1]:
+    st.image('pages/resources/grupotrebol.png',use_column_width=True)
+
+
+
+sac.divider(label='', icon='infinity', align='center',key='div7')
+
+cols7 = st.columns([.5,.5])
+
+with cols7[0]:
+    st.header('Presentación del Grupo del Trébol')
+    st.divider()
+    r'''
+    Se demuestra que cualquiera de las relaciones obtenidas es consecuencia de las otras, lo que nos permite descartar una de ellas (por ejemplo, la tercera). Así, obtenemos una presentación del grupo del nudo trébol como:
+
+$$
+⟨ x, y, z | x = yzy^{-1}, y = zxz^{-1} ⟩.
+$$
+
+Si sustituimos $z = xyx^{-1}$ en las otras relaciones y realizamos una operación de Tietze de Tipo II', obtenemos:
+
+$$
+⟨ x, y | x = yxyx^{-1}y^{-1}, y = xyxy^{-1}x^{-1} ⟩.
+$$
+
+Multiplicando por la derecha la segunda relación por $xyx^{-1}y^{-1}$, obtenemos la primera relación. Esto demuestra que cualquiera de las relaciones obtenidas es una consecuencia de las otras. Finalmente, llegamos a la siguiente presentación del grupo del nudo trébol:
+
+$$
+⟨ x, y | xyx = yxy ⟩.
+$$
+
+Esta presentación es equivalente a la presentación anterior:
+
+$$
+⟨ a, b | a^3 = b^2 ⟩.
+$$
+
+
+'''
+
+with cols7[1]:
+    st.image('pages/resources/grupotrebol2.png',use_column_width=True)
+
+
+
+
+sac.divider(label='', icon='infinity', align='center',key='div8')
+st.header('Polinomios')
+'''
+En esta sección, exploraremos un nuevo tipo de invariante para nudos que involucra la asignación de polinomios en lugar de números o grupos. A lo largo de la historia de la teoría de nudos, dos descubrimientos fundamentales han impulsado y enriquecido la comprensión de este campo: el polinomio de Alexander en 1928 y el polinomio de Jones en 1984. Estos polinomios desempeñan un papel crucial en el estudio y la clasificación de los nudos.
+'''
+sac.divider(label='', icon='infinity', align='center',key='d')
+
+cols8 = st.columns([.5,.5])
+
+with cols8[0]:
+    st.header('Polinomio de Alexander')
+    st.divider()
+    r'''
+   El polinomio de Alexander es un invariante de nudos que desempeñó un papel fundamental en el desarrollo de la teoría de nudos. Fue introducido por el matemático James W. Alexander en 1928. Este polinomio se utiliza para distinguir nudos, es decir, para determinar si dos nudos dados son equivalentes o no. Además, proporciona información valiosa sobre la estructura de un nudo.
+
+La idea principal detrás del polinomio de Alexander es representar un nudo mediante una cierta cantidad de variables y ecuaciones, lo que resulta en un polinomio único asociado al nudo. Este polinomio se denota comúnmente como $\Delta(t)$, donde $t$ es la variable del polinomio. La forma exacta del polinomio depende de cómo el nudo esté proyectado en el espacio tridimensional.
+
+Para entender mejor este concepto, consideremos un ejemplo simple: el nudo trébol (también conocido como nudo de tres hojas). Este nudo se representa mediante una proyección plana, y el polinomio de Alexander asociado se denota como $\Delta(t)$. La representación del polinomio de Alexander para el nudo trébol es:
+
+$\Delta(t) = t^{-1} - 1 + t$
+
+En este caso, la variable $t$ es una variable formal utilizada en álgebra, y el polinomio tiene coeficientes enteros. La forma específica del polinomio se deriva de las ecuaciones que describen cómo las partes del nudo interactúan en la proyección.
+
+El polinomio de Alexander puede ser utilizado para determinar si dos proyecciones diferentes de un nudo representan el mismo nudo. Si los polinomios asociados a estas proyecciones son idénticos, entonces los nudos son equivalentes.
+
+En resumen, el polinomio de Alexander es una herramienta matemática fundamental en la teoría de nudos que nos permite caracterizar y distinguir diferentes nudos. Su utilización proporciona una forma formal de estudiar y clasificar los nudos en el vasto mundo de la topología y la geometría.
+'''
+
+with cols8[1]:
+    st.image('pages/resources/alexanderpoly.png',use_column_width=True)
+
+
 
 
